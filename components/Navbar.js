@@ -1,5 +1,6 @@
 import css from '@/scss/Navbar.module.scss'
 import Breadcrumbs from './Breadcrumbs'
+import Toolbar from './Toolbar'
 
 export default function Navbar({ module, chapterNr, sectionNr }) {
   return (
@@ -9,7 +10,7 @@ export default function Navbar({ module, chapterNr, sectionNr }) {
         chapterNr={chapterNr}
         sectionNr={sectionNr}
       />
-      <div className={css.icons}></div>
+      <Toolbar />
     </div>
   )
 }
