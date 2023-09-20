@@ -1,0 +1,9 @@
+.container {
+  color: #fff;
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+  
+  &:hover {
+    color: #999;
+  }
+}
