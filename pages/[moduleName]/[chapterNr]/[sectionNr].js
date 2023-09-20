@@ -16,7 +16,7 @@ export default function Study({ moduleJson, chapterNr, sectionNr }) {
       </Head>
 
       <main>
-        <StudyRoot module={module} chapterNr={chapterNr} sectionNr={sectionNr} />
+        <StudyRoot module={module} chapterNr={Number(chapterNr)} sectionNr={Number(sectionNr)} />
       </main>
     </div>
   )
