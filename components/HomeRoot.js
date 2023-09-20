@@ -1,9 +1,10 @@
+import Link from 'next/link'
 import css from '@/scss/HomeRoot.module.scss'
 
-export default function HomeRoot({ modules }) {
+export default function HomeRoot() {
   return (
     <div className={css.root}>
-      Hello World
+      <Link href='/study/logical-foundations'>Logical Foundations</Link>
     </div>
   )
 }
