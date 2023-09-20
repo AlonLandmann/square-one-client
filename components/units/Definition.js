@@ -1,10 +1,10 @@
 import { v4 as uuid } from 'uuid'
 import Part from '@/components/parts/Part'
 import TeX from '@/components/parser/TeX'
-import css from '@/scss/units/Notion.module.scss'
+import css from '@/scss/units/Definition.module.scss'
 import { capitalize } from 'lodash'
 
-export default function Notion({ unit }) {
+export default function Definition({ unit }) {
   return (
     <div className={css.container}>
       <div className={css.headline}>
