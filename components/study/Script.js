@@ -5,7 +5,9 @@ import Section from '../units/Section'
 import Text from '../units/Text'
 import Notion from '../units/Notion'
 import Definition from '../units/Definition'
+import Theorem from '../units/Theorem'
 import Example from '../units/Example'
+import Exercise from '../units/Exercise'
 
 export default function Script({ sectionContent }) {
   return (
@@ -19,7 +21,9 @@ export default function Script({ sectionContent }) {
           {unit.type === 'text' && <Text unit={unit} />}
           {unit.type === 'notion' && <Notion unit={unit} />}
           {unit.type === 'definition' && <Definition unit={unit} />}
+          {unit.type === 'theorem' && <Theorem unit={unit} />}
           {unit.type === 'example' && <Example unit={unit} />}
+          {unit.type === 'exercise' && <Exercise unit={unit} />}
         </div>
       ))}
     </div>
