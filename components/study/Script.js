@@ -1,4 +1,4 @@
-import css from '@/scss/Script.module.scss'
+import css from '@/scss/study/Script.module.scss'
 import { v4 as uuid } from 'uuid'
 
 export default function Script({ module, chapterNr, sectionNr }) {

@@ -1,4 +1,4 @@
-import css from '@/scss/Toolbar.module.scss'
+import css from '@/scss/study/Toolbar.module.scss'
 
 export default function Toolbar() {
   return (

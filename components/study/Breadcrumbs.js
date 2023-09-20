@@ -1,4 +1,4 @@
-import css from '@/scss/Breadcrumbs.module.scss'
+import css from '@/scss/study/Breadcrumbs.module.scss'
 
 export default function Breadcrumbs({ module, chapterNr, sectionNr }) {
   return (

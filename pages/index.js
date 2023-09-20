@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import HomeRoot from '@/components/HomeRoot'
+import HomeRoot from '@/components/home/HomeRoot'
 
 export default function Home() {
   return (

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import css from '@/scss/HomeRoot.module.scss'
+import css from '@/scss/home/HomeRoot.module.scss'
 
 export default function HomeRoot() {
   return (

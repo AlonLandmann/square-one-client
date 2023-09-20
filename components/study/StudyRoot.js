@@ -1,4 +1,4 @@
-import css from '@/scss/StudyRoot.module.scss'
+import css from '@/scss/study/StudyRoot.module.scss'
 import Navbar from './Navbar'
 import Script from './Script'
 

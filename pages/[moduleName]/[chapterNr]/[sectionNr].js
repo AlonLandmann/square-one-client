@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import StudyRoot from '@/components/StudyRoot'
+import StudyRoot from '@/components/study/StudyRoot'
 import dbConnect from '@/db/dbConnect'
 import Module from '@/db/models/Module'
 

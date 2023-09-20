@@ -1,4 +1,4 @@
-import css from '@/scss/Navbar.module.scss'
+import css from '@/scss/study/Navbar.module.scss'
 import Breadcrumbs from './Breadcrumbs'
 import Toolbar from './Toolbar'
 
