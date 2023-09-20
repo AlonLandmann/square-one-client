@@ -2,6 +2,7 @@ import Head from 'next/head'
 import StudyRoot from '@/components/study/StudyRoot'
 import dbConnect from '@/db/dbConnect'
 import Module from '@/db/models/Module'
+import hydrate from '@/lib/hydrate'
 
 export default function Study({ moduleJson, chapterNr, sectionNr }) {
   const module = JSON.parse(moduleJson)
@@ -25,7 +26,8 @@ export default function Study({ moduleJson, chapterNr, sectionNr }) {
 export async function getServerSideProps({ query: { moduleName, chapterNr, sectionNr } }) {
   dbConnect()
 
-  const module = await Module.findOne({ pathName: moduleName }, { _id: 0 })
+  const raw = await Module.findOne({ pathName: moduleName }, { _id: 0 })
+  const module = hydrate(raw)
 
   return {
     props: {

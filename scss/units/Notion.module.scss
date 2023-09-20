@@ -1,0 +1,29 @@
+.container {
+  font-family: 'Crimson Pro', serif;
+  text-align: justify;
+  border-left: 3px solid #ccc;
+  color: #bbb;
+  background-color: #292929;
+}
+
+.headline {
+  padding: 10px 15px;
+  display: flex;
+  background-color: #303030;
+}
+
+.number {
+  margin-left: 4px;
+}
+
+.name {
+  margin-left: 8px;
+}
+
+.content {
+  padding: 10px 15px;
+}
+
+.parts {
+  padding: 10px 15px;
+}

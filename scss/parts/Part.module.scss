@@ -1,0 +1,24 @@
+.container {
+  padding: 10px 0px 10px 5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #888;
+}
+
+.number {
+  min-width: 40px;
+  font-size: 14px;
+  text-align: center;
+  color: #aaa;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+
+  &:hover {
+    color: #eee;
+  }
+}
+
+.content {
+  flex-grow: 1;
+}
