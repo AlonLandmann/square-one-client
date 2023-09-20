@@ -6,7 +6,6 @@ export default function Toolbar() {
       <div><i className='bi bi-crosshair'></i></div>
       <div><i className='bi bi-moon-fill'></i></div>
       <div><i className='bi bi-gear-fill'></i></div>
-      <div><i className='bi bi-person-fill'></i></div>
     </div>
   )
 }
