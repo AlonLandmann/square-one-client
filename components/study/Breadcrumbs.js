@@ -1,6 +1,6 @@
 import css from '@/scss/study/Breadcrumbs.module.scss'
 
-export default function Breadcrumbs({ module, chapterNr, sectionNr }) {
+export default function Breadcrumbs({ sectionContent }) {
   return (
     <div className={css.container}>
       <div className={css.logo}>
@@ -9,15 +9,15 @@ export default function Breadcrumbs({ module, chapterNr, sectionNr }) {
       </div>
       <div><i className='bi bi-slash-lg'></i></div>
       <div className={css.module}>
-        {module.displayName}
+        {sectionContent.module.name}
       </div>
       <div><i className='bi bi-slash-lg'></i></div>
       <div className={css.chapter}>
-        Chapter Name
+        {sectionContent.chapter.name}
       </div>
       <div><i className='bi bi-slash-lg'></i></div>
       <div className={css.section}>
-        Section Name
+        {sectionContent.section.name}
       </div>
     </div>
   )

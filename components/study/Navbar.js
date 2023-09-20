@@ -2,14 +2,10 @@ import css from '@/scss/study/Navbar.module.scss'
 import Breadcrumbs from './Breadcrumbs'
 import Toolbar from './Toolbar'
 
-export default function Navbar({ module, chapterNr, sectionNr }) {
+export default function Navbar({ sectionContent }) {
   return (
     <div className={css.container}>
-      <Breadcrumbs
-        module={module}
-        chapterNr={chapterNr}
-        sectionNr={sectionNr}
-      />
+      <Breadcrumbs sectionContent={sectionContent} />
       <Toolbar />
     </div>
   )
