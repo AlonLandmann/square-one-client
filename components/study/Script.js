@@ -1,13 +1,20 @@
 import css from '@/scss/study/Script.module.scss'
 import { v4 as uuid } from 'uuid'
+import Chapter from '../units/Chapter'
+import Section from '../units/Section'
+import Text from '../units/Text'
 
 export default function Script({ sectionContent }) {
   return (
     <div className={css.container}>
-      <div className={css.chapter}>{sectionContent.chapter.name}</div>
-      <div className={css.section}>{sectionContent.section.name}</div>
+      {sectionContent.section.nr === 1 &&
+        <Chapter chapter={sectionContent.chapter} />
+      }
+      <Section section={sectionContent.section} />
       {sectionContent.units.map(unit => (
-        <div key={uuid()}>{unit.type}</div>
+        <div key={uuid()}>
+          {unit.type === 'text' && <Text unit={unit} />}
+        </div>
       ))}
     </div>
   )
