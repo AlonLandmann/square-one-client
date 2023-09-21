@@ -9,8 +9,23 @@ import Theorem from '../units/Theorem'
 import Example from '../units/Example'
 import Exercise from '../units/Exercise'
 import Rule from '../units/Rule'
+import { useRouter } from 'next/router'
 
 export default function Script({ sectionContent }) {
+  const router = useRouter()
+
+  function navToPrevious() {
+    if (sectionContent.previous) {
+      router.push(sectionContent.previous)
+    }
+  }
+
+  function navToNext() {
+    if (sectionContent.next) {
+      router.push(sectionContent.next)
+    }
+  }
+
   return (
     <div className={css.container}>
       {sectionContent.section.nr === 1 &&
@@ -28,6 +43,19 @@ export default function Script({ sectionContent }) {
           {unit.type === 'exercise' && <Exercise unit={unit} />}
         </div>
       ))}
+      <div className={css.navs}>
+        <div className={css.chevron} onClick={navToPrevious}>
+          {sectionContent.previous &&
+            <i className='bi bi-chevron-left'></i>
+          }
+        </div>
+        <div className={css.check}><i className='bi bi-check2-all'></i></div>
+        <div className={css.chevron} onClick={navToNext}>
+          {sectionContent.next &&
+            <i className='bi bi-chevron-right'></i>
+          }
+        </div>
+      </div>
     </div>
   )
 }

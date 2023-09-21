@@ -36,10 +36,14 @@ export default function Breadcrumbs({ sectionContent }) {
       </div>
       <div className={css.navs}>
         <div onClick={navToPrevious}>
-          <i className='bi bi-chevron-left'></i>
+          {sectionContent.previous &&
+            <i className='bi bi-chevron-left'></i>
+          }
         </div>
         <div onClick={navToNext}>
-          <i className='bi bi-chevron-right'></i>
+          {sectionContent.next &&
+            <i className='bi bi-chevron-right'></i>
+          }
         </div>
       </div>
     </div>
