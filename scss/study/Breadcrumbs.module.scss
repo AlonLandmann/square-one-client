@@ -4,6 +4,7 @@
   font-size: 13px;
   color: #bbb;
 }
+
 .logo,
 .module,
 .chapter,
@@ -16,10 +17,28 @@
     color: #eee;
   }
 }
+
 .logo {
   display: flex;
   gap: 8px;
 }
+
 .section {
   color: #eee;
+}
+
+.navs {
+  margin-left: 8px;
+  display: flex;
+  font-size: 11px;
+
+  i {
+    padding: 2px 5px;
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
+
+    &:hover {
+      color: #eee;
+    }
+  }
 }
