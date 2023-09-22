@@ -4,8 +4,9 @@ import dbConnect from '@/db/dbConnect'
 import Module from '@/db/models/Module'
 import hydrate from '@/lib/hydrate'
 
-export default function Study({ moduleJson, chapterNr, sectionNr }) {
+export default function Study({ moduleJson, modulesInfoJson, chapterNr, sectionNr }) {
   const module = JSON.parse(moduleJson)
+  const modulesInfo = JSON.parse(modulesInfoJson)
 
   return (
     <div>
@@ -17,7 +18,12 @@ export default function Study({ moduleJson, chapterNr, sectionNr }) {
       </Head>
 
       <main>
-        <StudyRoot module={module} chapterNr={Number(chapterNr)} sectionNr={Number(sectionNr)} />
+        <StudyRoot
+          module={module}
+          modulesInfo={modulesInfo}
+          chapterNr={Number(chapterNr)}
+          sectionNr={Number(sectionNr)}
+        />
       </main>
     </div>
   )
@@ -29,9 +35,12 @@ export async function getServerSideProps({ query: { moduleName, chapterNr, secti
   const raw = await Module.findOne({ pathName: moduleName }, { _id: 0 })
   const module = hydrate(raw)
 
+  const modulesInfo = await Module.find({}, { _id: 0, script: 0 }).sort({ id: 1 })
+
   return {
     props: {
       moduleJson: JSON.stringify(module),
+      modulesInfoJson: JSON.stringify(modulesInfo),
       chapterNr: chapterNr,
       sectionNr: sectionNr
     }

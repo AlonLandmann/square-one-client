@@ -4,12 +4,12 @@ import Toolbar from './Toolbar'
 import { useState } from 'react'
 import DropDownNav from './DropDownNav'
 
-export default function Navbar({ module, sectionContent }) {
+export default function Navbar({ module, modulesInfo, sectionContent }) {
   const [dd, setDd] = useState({ inView: false, triangleOffset: 100, boxOffset: 10 })
 
   return (
-    <div onMouseLeave={() => { setDd(prev => ({ ...prev, inView: false })) }}>
-      <div className={css.container}>
+    <div className={css.container} onMouseLeave={() => { setDd(prev => ({ ...prev, inView: false })) }}>
+      <div className={css.navbar}>
         <Breadcrumbs
           sectionContent={sectionContent}
           setDd={setDd}
@@ -18,6 +18,7 @@ export default function Navbar({ module, sectionContent }) {
       </div>
       <DropDownNav
         module={module}
+        modulesInfo={modulesInfo}
         sectionContent={sectionContent}
         dd={dd}
       />

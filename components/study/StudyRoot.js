@@ -3,12 +3,12 @@ import Navbar from './Navbar'
 import Script from './Script'
 import getSectionContent from '@/lib/getSectionContent'
 
-export default function StudyRoot({ module, chapterNr, sectionNr }) {
+export default function StudyRoot({ module, modulesInfo, chapterNr, sectionNr }) {
   const sectionContent = getSectionContent(module, chapterNr, sectionNr)
 
   return (
     <div>
-      <Navbar module={module} sectionContent={sectionContent} />
+      <Navbar module={module} modulesInfo={modulesInfo} sectionContent={sectionContent} />
       <div className={css.main}>
         <Script sectionContent={sectionContent} />
       </div>
