@@ -2,8 +2,9 @@
   margin-top: auto;
   padding-top: 80px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  gap: 40px;
 
   div {
     cursor: pointer;
@@ -17,7 +18,7 @@
 }
 
 .check {
-  font-size: 36px;
+  font-size: 24px;
 }
 
 .container div.checked {
@@ -29,5 +30,5 @@
 }
 
 .chevron {
-  font-size: 24px;
+  font-size: 20px;
 }

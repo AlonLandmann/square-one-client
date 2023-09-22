@@ -12,7 +12,11 @@ export default function Breadcrumbs({ sectionContent, setDd }) {
 
   return (
     <div className={css.container}>
-      <div className={css.logo} onMouseEnter={(e) => { showDd(e, 'logo') }}>
+      <div
+        className={css.logo}
+        onMouseEnter={() => { setDd(prev => ({ ...prev, inView: null })) }}
+        onClick={() => { location.replace('/') }}
+      >
         <i className='bi bi-1-square'></i>
         <div>Square One</div>
       </div>
