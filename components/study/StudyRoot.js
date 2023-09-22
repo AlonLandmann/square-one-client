@@ -8,7 +8,7 @@ export default function StudyRoot({ module, chapterNr, sectionNr }) {
 
   return (
     <div>
-      <Navbar sectionContent={sectionContent} />
+      <Navbar module={module} sectionContent={sectionContent} />
       <div className={css.main}>
         <Script sectionContent={sectionContent} />
       </div>

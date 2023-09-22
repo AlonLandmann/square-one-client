@@ -1,8 +1,13 @@
 .container {
   display: flex;
-  align-items: center;
   font-size: 13px;
   color: #bbb;
+  cursor: pointer;
+
+  &>div {
+    display: flex;
+    align-items: center;
+  }
 }
 
 .logo,
@@ -10,7 +15,6 @@
 .chapter,
 .section {
   padding: 0px 6px;
-  cursor: pointer;
   transition: all 0.15s ease-in-out;
 
   &:hover {
