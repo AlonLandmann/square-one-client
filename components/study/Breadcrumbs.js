@@ -5,7 +5,7 @@ export default function Breadcrumbs({ sectionContent, setDd }) {
     const { offsetLeft, offsetWidth } = event.target
 
     const triangleOffset = offsetLeft + 0.5 * offsetWidth - 8
-    const boxOffset = Math.max(6, triangleOffset - 192)
+    const boxOffset = Math.max(0, triangleOffset - 192)
 
     setDd({ inView: true, triangleOffset, boxOffset })
   }
@@ -27,7 +27,6 @@ export default function Breadcrumbs({ sectionContent, setDd }) {
       </div>
       <div><i className='bi bi-slash-lg'></i></div>
       <div className={css.section} onMouseEnter={showDd}>
-        {sectionContent.chapter.nr}.
         {sectionContent.section.nr}{' '}
         {sectionContent.section.name}
       </div>
