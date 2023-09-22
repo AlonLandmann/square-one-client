@@ -18,6 +18,7 @@ export default function Navbar({ module, sectionContent }) {
       </div>
       <DropDownNav
         module={module}
+        sectionContent={sectionContent}
         dd={dd}
       />
     </div>
