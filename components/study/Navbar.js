@@ -15,7 +15,7 @@ export default function Navbar({ module, modulesInfo, sectionContent, dd, setDd 
           setDd={setDd}
           setDdOffset={setDdOffset}
         />
-        <Toolbar />
+        <Toolbar setDd={setDd} />
       </div>
       <DropDownNav
         module={module}

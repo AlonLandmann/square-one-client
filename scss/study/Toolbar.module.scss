@@ -1,5 +1,7 @@
 .container {
+  flex-grow: 1;
   display: flex;
+  justify-content: flex-end;
   align-items: center;
   gap: 6px;
   font-size: 13px;
