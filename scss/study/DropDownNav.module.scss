@@ -1,25 +1,24 @@
-.container {
-  position: absolute;
-  z-index: 200;
-  padding: 0px 6px;
+.triangleContainer {
+  position: fixed;
+  top: 40px;
+  width: 400px;
+  display: flex;
+  justify-content: center;
   transition: all 0.33s ease-in-out;
 }
-
 .triangle {
-  position: relative;
   width: 0;
   height: 0;
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
   border-bottom: 8px solid #444;
-  transition: all 0.33s ease-in-out;
 }
 
 .content {
-  position: relative;
+  position: fixed;
+  top: 47px;
   width: 400px;
   max-height: 300px;
-  margin-top: -1px;
   padding: 4px;
   border-radius: 3px;
   display: flex;

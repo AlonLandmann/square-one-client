@@ -1,16 +1,34 @@
 import css from '@/scss/study/DropDownNav.module.scss'
 import { v4 as uuid } from 'uuid'
 
-export default function DropDownNav({ module, modulesInfo, sectionContent, dd }) {
+export default function DropDownNav({ module, modulesInfo, sectionContent, dd, ddOffsets }) {
   function navTo(chapter, section) {
     location.replace(`/${module.pathName}/${chapter}/${section}`)
   }
 
+  function getStyle(id) {
+    return {
+      opacity: dd === id ? '1' : '0',
+      left: ddOffsets.content,
+      zIndex: dd === id ? '10' : '-10'
+    }
+  }
+
+  function getTriangleStyle(id) {
+    return {
+      opacity: dd === id ? '1' : '0',
+      left: ddOffsets.content,
+      zIndex: dd === id ? '10' : '-10'
+    }
+  }
+
   return (
-    <>
-      <div className={css.container} style={{ opacity: dd.inView === 'modules' ? '1' : '0', zIndex: dd.inView === 'modules' ? '1000' : '-1000', left: `${dd.boxOffset}px` }}>
-        <div className={css.triangle} style={{ left: `${dd.triangleOffset - dd.boxOffset}px` }}></div>
-        <div className={css.content}>
+    <div>
+      <div>
+        <div className={css.triangleContainer} style={getTriangleStyle('modules')}>
+          <div className={css.triangle}></div>
+        </div>
+        <div className={css.content} style={getStyle('modules')}>
           {modulesInfo.map(moduleInfo => (
             <div
               key={uuid()}
@@ -24,9 +42,11 @@ export default function DropDownNav({ module, modulesInfo, sectionContent, dd })
           }
         </div>
       </div>
-      <div className={css.container} style={{ opacity: dd.inView === 'chapters' ? '1' : '0', zIndex: dd.inView === 'chapters' ? '1000' : '-1000', left: `${dd.boxOffset}px` }}>
-        <div className={css.triangle} style={{ left: `${dd.triangleOffset - dd.boxOffset}px` }}></div>
-        <div className={css.content}>
+      <div>
+        <div className={css.triangleContainer} style={getTriangleStyle('chapters')}>
+          <div className={css.triangle}></div>
+        </div>
+        <div className={css.content} style={getStyle('chapters')}>
           {module.script.filter(unit => unit.type === 'heading').map(unit => (
             <div
               key={uuid()}
@@ -40,9 +60,11 @@ export default function DropDownNav({ module, modulesInfo, sectionContent, dd })
           }
         </div>
       </div>
-      <div className={css.container} style={{ opacity: dd.inView  === 'sections' ? '1' : '0', zIndex: dd.inView === 'sections' ? '1000' : '-1000', left: `${dd.boxOffset}px` }}>
-        <div className={css.triangle} style={{ left: `${dd.triangleOffset - dd.boxOffset}px` }}></div>
-        <div className={css.content}>
+      <div>
+        <div className={css.triangleContainer} style={getTriangleStyle('sections')}>
+          <div className={css.triangle}></div>
+        </div>
+        <div className={css.content} style={getStyle('sections')}>
           {module.script.filter(unit => (
             unit.chapter === sectionContent.chapter.nr && unit.type === 'subheading'
           )).map(unit => (
@@ -58,7 +80,6 @@ export default function DropDownNav({ module, modulesInfo, sectionContent, dd })
           }
         </div>
       </div>
-    </>
-
+    </div>
   )
 }
