@@ -1,7 +1,7 @@
 import css from '@/scss/study/DropDownNav.module.scss'
 import { v4 as uuid } from 'uuid'
 
-export default function DropDownNav({ module, modulesInfo, sectionContent, dd, ddOffsets }) {
+export default function DropDownNav({ module, modulesInfo, sectionContent, dd, ddOffset }) {
   function navTo(chapter, section) {
     location.replace(`/${module.pathName}/${chapter}/${section}`)
   }
@@ -9,15 +9,7 @@ export default function DropDownNav({ module, modulesInfo, sectionContent, dd, d
   function getStyle(id) {
     return {
       opacity: dd === id ? '1' : '0',
-      left: ddOffsets.content,
-      zIndex: dd === id ? '10' : '-10'
-    }
-  }
-
-  function getTriangleStyle(id) {
-    return {
-      opacity: dd === id ? '1' : '0',
-      left: ddOffsets.content,
+      left: ddOffset,
       zIndex: dd === id ? '10' : '-10'
     }
   }
@@ -25,7 +17,7 @@ export default function DropDownNav({ module, modulesInfo, sectionContent, dd, d
   return (
     <div>
       <div>
-        <div className={css.triangleContainer} style={getTriangleStyle('modules')}>
+        <div className={css.triangleContainer} style={getStyle('modules')}>
           <div className={css.triangle}></div>
         </div>
         <div className={css.content} style={getStyle('modules')}>
@@ -43,7 +35,7 @@ export default function DropDownNav({ module, modulesInfo, sectionContent, dd, d
         </div>
       </div>
       <div>
-        <div className={css.triangleContainer} style={getTriangleStyle('chapters')}>
+        <div className={css.triangleContainer} style={getStyle('chapters')}>
           <div className={css.triangle}></div>
         </div>
         <div className={css.content} style={getStyle('chapters')}>
@@ -61,7 +53,7 @@ export default function DropDownNav({ module, modulesInfo, sectionContent, dd, d
         </div>
       </div>
       <div>
-        <div className={css.triangleContainer} style={getTriangleStyle('sections')}>
+        <div className={css.triangleContainer} style={getStyle('sections')}>
           <div className={css.triangle}></div>
         </div>
         <div className={css.content} style={getStyle('sections')}>

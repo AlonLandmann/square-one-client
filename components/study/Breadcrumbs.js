@@ -1,13 +1,13 @@
 import css from '@/scss/study/Breadcrumbs.module.scss'
 
-export default function Breadcrumbs({ sectionContent, setDd, setDdOffsets }) {
+export default function Breadcrumbs({ sectionContent, setDd, setDdOffset }) {
   function handleEnter(event, type) {
     const { offsetLeft, offsetWidth } = event.target
     const triangleOffset = offsetLeft + 0.5 * offsetWidth - 8
-    const contentOffset = Math.max(0, triangleOffset - 192)
+    const contentOffset = Math.max(6, triangleOffset - 192)
 
     setDd(type)
-    setDdOffsets({ triangle: triangleOffset, content: contentOffset })
+    setDdOffset(contentOffset)
   }
 
   return (

@@ -5,7 +5,7 @@ import { useState } from 'react'
 import DropDownNav from './DropDownNav'
 
 export default function Navbar({ module, modulesInfo, sectionContent, dd, setDd }) {
-  const [ddOffsets, setDdOffsets] = useState({ triangle: 0, content: 0 })
+  const [ddOffset, setDdOffset] = useState(0)
 
   return (
     <>
@@ -13,7 +13,7 @@ export default function Navbar({ module, modulesInfo, sectionContent, dd, setDd 
         <Breadcrumbs
           sectionContent={sectionContent}
           setDd={setDd}
-          setDdOffsets={setDdOffsets}
+          setDdOffset={setDdOffset}
         />
         <Toolbar />
       </div>
@@ -22,7 +22,7 @@ export default function Navbar({ module, modulesInfo, sectionContent, dd, setDd 
         modulesInfo={modulesInfo}
         sectionContent={sectionContent}
         dd={dd}
-        ddOffsets={ddOffsets}
+        ddOffset={ddOffset}
       />
     </>
   )
