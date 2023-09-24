@@ -11,7 +11,7 @@ import Rule from '../units/Rule'
 import { cloneDeep } from 'lodash'
 
 
-export default function Stack({ stack, setStack }) {
+export default function Stack({ stack, setStack, setRightSide }) {
   function expand(index) {
     setStack(prev => prev.map(unit => {
       if (unit.index === index) {
@@ -87,6 +87,13 @@ export default function Stack({ stack, setStack }) {
           </div>
         </div>
       ))}
+      {stack.length === 0 &&
+        <div className={css.filler}>
+          <i className='bi bi-layers'></i>
+          <div>Reference stack is empty.</div>
+          <button onClick={() => { setRightSide('core') }}>add</button>
+        </div>
+      }
     </div>
   )
 }

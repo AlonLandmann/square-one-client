@@ -4,14 +4,35 @@
 :root {
   color-scheme: dark;
 }
-.katex { font-size: 1em !important; } 
+
+.katex {
+  font-size: 1em !important;
+}
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
+
 body {
   font-family: 'Red Hat Display', sans-serif;
   background-color: #222;
+}
+
+button {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 3px;
+  outline: none;
+  font-family: 'Red Hat Display', sans-serif;
+  font-size: 15px;
+  color: #ddd;
+  background-color: #282828;
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  &:hover {
+    background-color: #333;
+  }
 }

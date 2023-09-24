@@ -4,7 +4,7 @@ import Toolbar from './Toolbar'
 import { useState } from 'react'
 import DropDownNav from './DropDownNav'
 
-export default function Navbar({ module, modulesInfo, sectionContent, dd, setDd, setIsLoading }) {
+export default function Navbar({ module, modulesInfo, sectionContent, dd, setDd, setIsLoading, rightSide, setRightSide }) {
   const [ddOffset, setDdOffset] = useState(0)
 
   return (
@@ -15,7 +15,11 @@ export default function Navbar({ module, modulesInfo, sectionContent, dd, setDd,
           setDd={setDd}
           setDdOffset={setDdOffset}
         />
-        <Toolbar setDd={setDd} />
+        <Toolbar
+          setDd={setDd}
+          rightSide={rightSide}
+          setRightSide={setRightSide}
+        />
       </div>
       <DropDownNav
         module={module}
