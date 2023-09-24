@@ -2,7 +2,7 @@ import css from '@/scss/study/StudyRoot.module.scss'
 import Navbar from './Navbar'
 import Script from './Script'
 import getSectionContent from '@/lib/getSectionContent'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import ModuleProvider from '@/lib/ModuleProvider'
 import StackProvider from '@/lib/StackProvider'
 import Stack from './Stack'
@@ -16,6 +16,10 @@ export default function StudyRoot({ module, modulesInfo, chapterNr, sectionNr })
   const [isLoading, setIsLoading] = useState(false)
   const [rightSide, setRightSide] = useState('stack')
   const [notes, setNotes] = useState('Write raw text and formulas [a+b=c] in the bottom. To see how to use the editor to its fullest, check this page.')
+
+  useEffect(() => {
+    setRightSide('stack')
+  }, [stack])
 
   return (
     <ModuleProvider value={module}>
