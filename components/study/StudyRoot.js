@@ -6,6 +6,7 @@ import { useState } from 'react'
 import ModuleProvider from '@/lib/ModuleProvider'
 import StackProvider from '@/lib/StackProvider'
 import Stack from './Stack'
+import Core from './Core'
 
 export default function StudyRoot({ module, modulesInfo, chapterNr, sectionNr }) {
   const sectionContent = getSectionContent(module, chapterNr, sectionNr)
@@ -40,6 +41,9 @@ export default function StudyRoot({ module, modulesInfo, chapterNr, sectionNr })
           </div>
           {rightSide === 'stack' &&
             <Stack stack={stack} setStack={setStack} setRightSide={setRightSide} />
+          }
+          {rightSide === 'core' &&
+            <Core module={module} stack={stack} setStack={setStack} setRightSide={setRightSide} />
           }
         </div>
       </StackProvider>
