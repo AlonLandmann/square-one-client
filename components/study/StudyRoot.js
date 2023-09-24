@@ -11,6 +11,7 @@ export default function StudyRoot({ module, modulesInfo, chapterNr, sectionNr })
   const sectionContent = getSectionContent(module, chapterNr, sectionNr)
   const [dd, setDd] = useState(null)
   const [stack, setStack] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
 
   return (
     <ModuleProvider value={module}>
@@ -21,9 +22,19 @@ export default function StudyRoot({ module, modulesInfo, chapterNr, sectionNr })
           sectionContent={sectionContent}
           dd={dd}
           setDd={setDd}
+          setIsLoading={setIsLoading}
         />
         <div className={css.main} onMouseEnter={() => { setDd(null) }}>
-          <Script sectionContent={sectionContent} />
+          <div>
+            {isLoading &&
+              <div className={css.loaderContainer}>
+                <div className={css.loader}></div>
+              </div>
+            }
+            <div style={{ opacity: isLoading ? '0' : '1' }}>
+              <Script sectionContent={sectionContent} setIsLoading={setIsLoading} />
+            </div>
+          </div>
           <Stack stack={stack} setStack={setStack} />
         </div>
       </StackProvider>

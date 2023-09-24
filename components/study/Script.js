@@ -12,7 +12,7 @@ import Example from '../units/Example'
 import Exercise from '../units/Exercise'
 import Rule from '../units/Rule'
 
-export default function Script({ sectionContent }) {
+export default function Script({ sectionContent, setIsLoading }) {
   return (
     <div className={css.container}>
       {sectionContent.section.nr === 1 &&
@@ -31,7 +31,7 @@ export default function Script({ sectionContent }) {
           {unit.type === 'exercise' && <Exercise unit={unit} />}
         </div>
       ))}
-      <ScriptNav sectionContent={sectionContent} />
+      <ScriptNav sectionContent={sectionContent} setIsLoading={setIsLoading} />
     </div>
   )
 }

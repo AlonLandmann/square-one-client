@@ -2,19 +2,21 @@ import css from '@/scss/study/ScriptNav.module.scss'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 
-export default function ScriptNav({ sectionContent }) {
+export default function ScriptNav({ sectionContent, setIsLoading }) {
   const [checked, setChecked] = useState(false)
   const router = useRouter()
 
   function navToPrevious() {
     if (sectionContent.previous) {
-      router.push(sectionContent.previous)
+      setIsLoading(true)
+      router.push(sectionContent.previous).then(() => { setIsLoading(false) })
     }
   }
 
   function navToNext() {
     if (sectionContent.next) {
-      router.push(sectionContent.next)
+      setIsLoading(true)
+      router.push(sectionContent.next).then(() => { setIsLoading(false) })
     }
   }
 

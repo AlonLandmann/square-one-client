@@ -1,9 +1,14 @@
 import css from '@/scss/study/DropDownNav.module.scss'
+import { useRouter } from 'next/router'
 import { v4 as uuid } from 'uuid'
 
-export default function DropDownNav({ module, modulesInfo, sectionContent, dd, ddOffset }) {
+export default function DropDownNav({ module, modulesInfo, sectionContent, dd, setDd, ddOffset, setIsLoading }) {
+  const router = useRouter()
+
   function navTo(chapter, section) {
-    location.replace(`/${module.pathName}/${chapter}/${section}`)
+    setIsLoading(true)
+    setDd(null)
+    router.push(`/${module.pathName}/${chapter}/${section}`).then(() => { setIsLoading(false) })
   }
 
   function getStyle(id) {
@@ -25,7 +30,7 @@ export default function DropDownNav({ module, modulesInfo, sectionContent, dd, d
             <div
               key={uuid()}
               className={`${css.ddItem} ${module.id === moduleInfo.id ? css.selected : ''}`}
-              onClick={(e) => { e.stopPropagation(); location.replace(`/${moduleInfo.pathName}/1/1`) }}
+              onClick={(e) => { e.stopPropagation(); router.push(`/${moduleInfo.pathName}/1/1`) }}
             >
               <div className={css.number}>M{moduleInfo.id}</div>
               <div>{moduleInfo.displayName}</div>
