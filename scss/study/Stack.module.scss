@@ -27,43 +27,19 @@
 }
 
 .buttons {
+  padding: 8px 3px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-}
+  gap: 10px;
+  font-size: 14px;
 
-.removeButton {
-  flex-grow: 1;
-  min-width: 40px;
-  padding: 2px;
-  border-radius: 3px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #887777;
-  background-color: #282222;
-  cursor: pointer;
-  transition: all 0.15s ease-in-out;
-  
-  &:hover {
-    background-color: #302828;
-  }
-}
+  div {
+    color: #555;
+    cursor: pointer;
+    transition: all 0.15s ease;
 
-.expandButton {
-  flex-grow: 1;
-  min-width: 40px;
-  padding: 2px;
-  border-radius: 3px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #777788;
-  background-color: #222228;
-  cursor: pointer;
-  transition: all 0.15s ease-in-out;
-  
-  &:hover {
-    background-color: #282830;
+    &:hover {
+      color: #bbb;
+    }
   }
 }

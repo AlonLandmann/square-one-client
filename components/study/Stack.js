@@ -8,6 +8,7 @@ import Theorem from '../units/Theorem'
 import Example from '../units/Example'
 import Exercise from '../units/Exercise'
 import Rule from '../units/Rule'
+import { cloneDeep } from 'lodash'
 
 
 export default function Stack({ stack, setStack }) {
@@ -29,10 +30,30 @@ export default function Stack({ stack, setStack }) {
   function removeFromStack(index) {
     setStack(prev => prev.filter(unit => unit.index !== index))
   }
+  function moveUp(i) {
+    setStack(prev => {
+      let newStack = cloneDeep(prev)
+
+      newStack[i - 1] = prev[i]
+      newStack[i] = prev[i - 1]
+
+      return newStack
+    })
+  }
+  function moveDown(i) {
+    setStack(prev => {
+      let newStack = cloneDeep(prev)
+
+      newStack[i + 1] = prev[i]
+      newStack[i] = prev[i + 1]
+
+      return newStack
+    })
+  }
 
   return (
     <div className={css.container}>
-      {stack.map(unit => (
+      {stack.map((unit, i) => (
         <div key={uuid()} className={css.stackItem}>
           <div className={css.unit}>
             {unit.type === 'text' && <Text unit={unit} />}
@@ -45,14 +66,24 @@ export default function Stack({ stack, setStack }) {
             {unit.type === 'exercise' && <Exercise unit={unit} />}
           </div>
           <div className={css.buttons}>
+            <div onClick={() => { removeFromStack(unit.index) }}>
+              <i className='bi bi-trash3'></i>
+            </div>
             {(typeof unit.selectedSub === 'number' || typeof unit.hiddenSubSelection === 'number') &&
-              <div className={css.expandButton} onClick={() => { expand(unit.index) }}>
+              <div onClick={() => { expand(unit.index) }}>
                 <i className={`bi bi-arrows-${typeof unit.selectedSub === 'number' ? 'expand' : 'collapse'}`}></i>
               </div>
             }
-            <div className={css.removeButton} onClick={() => { removeFromStack(unit.index) }}>
-              <i className='bi bi-trash3'></i>
-            </div>
+            {i > 0 &&
+              <div onClick={() => { moveUp(i) }}>
+                <i className='bi bi-arrow-up'></i>
+              </div>
+            }
+            {i < stack.length - 1 &&
+              <div onClick={() => { moveDown(i) }}>
+                <i className='bi bi-arrow-down'></i>
+              </div>
+            }
           </div>
         </div>
       ))}
