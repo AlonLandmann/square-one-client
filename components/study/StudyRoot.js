@@ -7,6 +7,7 @@ import ModuleProvider from '@/lib/ModuleProvider'
 import StackProvider from '@/lib/StackProvider'
 import Stack from './Stack'
 import Core from './Core'
+import Notes from './Notes'
 
 export default function StudyRoot({ module, modulesInfo, chapterNr, sectionNr }) {
   const sectionContent = getSectionContent(module, chapterNr, sectionNr)
@@ -14,6 +15,7 @@ export default function StudyRoot({ module, modulesInfo, chapterNr, sectionNr })
   const [stack, setStack] = useState([])
   const [isLoading, setIsLoading] = useState(false)
   const [rightSide, setRightSide] = useState('stack')
+  const [notes, setNotes] = useState('Write raw text and formulas [a+b=c] in the bottom. To see how to use the editor to its fullest, check this page.')
 
   return (
     <ModuleProvider value={module}>
@@ -44,6 +46,9 @@ export default function StudyRoot({ module, modulesInfo, chapterNr, sectionNr })
           }
           {rightSide === 'core' &&
             <Core module={module} stack={stack} setStack={setStack} setRightSide={setRightSide} />
+          }
+          {rightSide === 'notes' &&
+            <Notes notes={notes} setNotes={setNotes} />
           }
         </div>
       </StackProvider>
