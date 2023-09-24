@@ -1,16 +1,16 @@
 import { v4 as uuid } from 'uuid'
 import { InlineMath } from 'react-katex'
-import Reference from '@/components/parser/Reference'
 import Derivation from '@/components/parser/Derivation'
-import Table from '@/components/parser/Table'
 import Highlight from '@/components/parser/Highlight'
+import Reference from '@/components/parser/Reference'
+import Table from '@/components/parser/Table'
 import 'katex/dist/katex.min.css'
 
 export default function TeX({ tex }) {
   let parsed = []
   let mode = 'text'
   let main = ''
-  
+
   const mathSplits = /^(=|<|>|\\neq|\\geq|\\leq)/
 
   for (let i = 0; i <= tex.length; i += 1) {
@@ -46,12 +46,12 @@ export default function TeX({ tex }) {
 
       if (tex[i] === '£') { pushDerivation(); mode = 'text' }
       else { main = main.concat(tex[i]) }
-      
+
     } else if (mode === 'table') {
 
       if (tex[i] === '#') { pushTable(); mode = 'text' }
       else { main = main.concat(tex[i]) }
-      
+
     } else if (mode === 'highlight') {
 
       if (tex[i] === '$') { pushHighlight(); mode = 'text' }
@@ -67,14 +67,16 @@ export default function TeX({ tex }) {
 
     main = ''
   }
+
   function pushNewLine() {
     parsed.push(
       <div key={uuid()} style={{ 'height': '20px' }}></div>
     )
   }
+
   function pushTextRef() {
     let content, refNum, subNum
-    
+
     if (main.split(',').length === 1) {
       content = main
       refNum = Number(main.split('.')[0])
@@ -93,6 +95,7 @@ export default function TeX({ tex }) {
 
     main = ''
   }
+
   function pushMath() {
     parsed.push(
       <InlineMath key={uuid()}>{main}</InlineMath>
@@ -100,11 +103,13 @@ export default function TeX({ tex }) {
 
     main = ''
   }
+
   function pushSpacer() {
     parsed.push(
       <span key={uuid()} style={{ 'marginRight': '0.2778em' }}></span>
     )
   }
+
   function pushMathRef() {
     let content = main.split(',')[0]
     let refNum = Number(main.split(',')[1].split('.')[0])
@@ -120,6 +125,7 @@ export default function TeX({ tex }) {
 
     main = ''
   }
+
   function pushDerivation() {
     parsed.push(
       <Derivation key={uuid()} tex={main} />
@@ -127,6 +133,7 @@ export default function TeX({ tex }) {
 
     main = ''
   }
+
   function pushTable() {
     parsed.push(
       <Table key={uuid()} tex={main} />
@@ -134,6 +141,7 @@ export default function TeX({ tex }) {
 
     main = ''
   }
+  
   function pushHighlight() {
     parsed.push(
       <Highlight key={uuid()} tex={main} />

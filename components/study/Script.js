@@ -1,25 +1,25 @@
-import css from '@/scss/study/Script.module.scss'
 import { v4 as uuid } from 'uuid'
-import Chapter from '../units/Chapter'
-import Section from '../units/Section'
-import Text from '../units/Text'
-import Notion from '../units/Notion'
-import Definition from '../units/Definition'
-import ScriptNav from './ScriptNav'
-import Axiom from '../units/Axiom'
-import Theorem from '../units/Theorem'
-import Example from '../units/Example'
-import Exercise from '../units/Exercise'
-import Rule from '../units/Rule'
+import ScriptNav from '@/components/study/ScriptNav'
+import Chapter from '@/components/units/Chapter'
+import Section from '@/components/units/Section'
+import Text from '@/components/units/Text'
+import Notion from '@/components/units/Notion'
+import Definition from '@/components/units/Definition'
+import Axiom from '@/components/units/Axiom'
+import Theorem from '@/components/units/Theorem'
+import Rule from '@/components/units/Rule'
+import Example from '@/components/units/Example'
+import Exercise from '@/components/units/Exercise'
+import css from '@/scss/study/Script.module.scss'
 
-export default function Script({ sectionContent, setIsLoading }) {
+export default function Script({ localContent, setIsLoading }) {
   return (
     <div className={css.container}>
-      {sectionContent.section.nr === 1 &&
-        <Chapter chapter={sectionContent.chapter} />
+      {localContent.section.nr === 1 &&
+        <Chapter chapter={localContent.chapter} />
       }
-      <Section section={sectionContent.section} />
-      {sectionContent.units.map(unit => (
+      <Section section={localContent.section} />
+      {localContent.units.map(unit => (
         <div key={uuid()}>
           {unit.type === 'text' && <Text unit={unit} />}
           {unit.type === 'notion' && <Notion unit={unit} />}
@@ -31,7 +31,10 @@ export default function Script({ sectionContent, setIsLoading }) {
           {unit.type === 'exercise' && <Exercise unit={unit} />}
         </div>
       ))}
-      <ScriptNav sectionContent={sectionContent} setIsLoading={setIsLoading} />
+      <ScriptNav
+        localContent={localContent}
+        setIsLoading={setIsLoading}
+      />
     </div>
   )
 }

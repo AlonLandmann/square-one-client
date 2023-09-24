@@ -1,9 +1,9 @@
 import Tooltip from '@mui/material/Tooltip'
-import { useModule } from '@/lib/ModuleProvider'
-import { useStack } from '@/lib/StackProvider'
-import pinToStack from '@/lib/pinToStack'
-import css from '@/scss/parser/Reference.module.scss'
 import { cloneDeep } from 'lodash'
+import { useModule } from '@/components/study/ModuleProvider'
+import { useStack } from '@/components/study/StackProvider'
+import pinToTop from '@/lib/pinToTop'
+import css from '@/scss/parser/Reference.module.scss'
 
 export default function Reference({ children, refNum, subNum }) {
   const module = useModule()
@@ -12,16 +12,15 @@ export default function Reference({ children, refNum, subNum }) {
   let unit = cloneDeep(module.script.filter(u => u.number === refNum)[0])
 
   if (unit) {
-    if (subNum || subNum === 0) {
+    if (subNum) {
       unit.selectedSub = subNum - 1
     } else {
       delete unit.selectedSub
     }
   }
 
-
   function handleClick() {
-    setStack(prevStack => pinToStack(unit, prevStack))
+    setStack(prev => pinToTop(unit, prev))
   }
 
   return (

@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { v4 as uuid } from 'uuid'
-import Subexercise from '@/components/parts/Subexercise'
-import Solution from '@/components/parts/Solution'
-import TeX from '@/components/parser/TeX'
-import css from '@/scss/units/Exercise.module.scss'
 import { capitalize } from 'lodash'
+import TeX from '@/components/parser/TeX'
+import Solution from '@/components/parts/Solution'
+import Subexercise from '@/components/parts/Subexercise'
+import css from '@/scss/units/Exercise.module.scss'
 
 export default function Exercise({ unit }) {
   const [solutionInView, setSolutionInView] = useState(false)

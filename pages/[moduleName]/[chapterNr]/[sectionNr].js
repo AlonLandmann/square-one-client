@@ -34,7 +34,6 @@ export async function getServerSideProps({ query: { moduleName, chapterNr, secti
 
   const raw = await Module.findOne({ pathName: moduleName }, { _id: 0 })
   const module = hydrate(raw)
-
   const modulesInfo = await Module.find({}, { _id: 0, script: 0 }).sort({ id: 1 })
 
   return {

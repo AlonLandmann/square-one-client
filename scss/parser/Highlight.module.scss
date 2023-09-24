@@ -3,10 +3,10 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  
-  .row {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-  }
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
 }

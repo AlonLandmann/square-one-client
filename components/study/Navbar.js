@@ -1,22 +1,24 @@
-import css from '@/scss/study/Navbar.module.scss'
-import Breadcrumbs from './Breadcrumbs'
-import Toolbar from './Toolbar'
 import { useState } from 'react'
-import DropDownNav from './DropDownNav'
+import Breadcrumbs from '@/components/study/Breadcrumbs'
+import Toolbar from '@/components/study/Toolbar'
+import DropDownNav from '@/components/study/DropDownNav'
+import css from '@/scss/study/Navbar.module.scss'
 
-export default function Navbar({ module, modulesInfo, sectionContent, dd, setDd, setIsLoading, rightSide, setRightSide }) {
-  const [ddOffset, setDdOffset] = useState(0)
+export default function Navbar({ module, modulesInfo, localContent, setIsLoading,
+  dropDown, setDropDown, rightSide, setRightSide }) {
+
+  const [dropDownOffset, setDropDownOffset] = useState(null)
 
   return (
     <>
       <div className={css.navbar}>
         <Breadcrumbs
-          sectionContent={sectionContent}
-          setDd={setDd}
-          setDdOffset={setDdOffset}
+          localContent={localContent}
+          setDropDown={setDropDown}
+          setDropDownOffset={setDropDownOffset}
         />
         <Toolbar
-          setDd={setDd}
+          setDropDown={setDropDown}
           rightSide={rightSide}
           setRightSide={setRightSide}
         />
@@ -24,11 +26,11 @@ export default function Navbar({ module, modulesInfo, sectionContent, dd, setDd,
       <DropDownNav
         module={module}
         modulesInfo={modulesInfo}
-        sectionContent={sectionContent}
-        dd={dd}
-        setDd={setDd}
-        ddOffset={ddOffset}
-        setIsLoading={setIsLoading}
+        localContent={localContent}
+        setIsLoading={setIsLoading} 
+        dropDown={dropDown}
+        setDropDown={setDropDown}
+        dropDownOffset={dropDownOffset}
       />
     </>
   )

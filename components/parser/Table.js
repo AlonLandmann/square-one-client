@@ -49,16 +49,16 @@ export default function Table({ tex }) {
     <table className={css.container} cellSpacing={0}>
       <tbody>
         {table.map(row => (
-          <tr key={uuid()} className={`${css.row}`}>
+          <tr key={uuid()}>
             {row.map(cell => (
               <td
                 key={uuid()}
                 className={css.cell}
+                colSpan={cell.colSpan || 1}
                 style={{
                   borderBottom: cell.borderBottom ? '1px solid #999' : undefined,
                   borderRight: cell.borderRight ? '1px solid #999' : undefined
                 }}
-                colSpan={cell.colSpan || 1}
               >
                 <TeX tex={cell.tex} />
               </td>

@@ -1,8 +1,8 @@
-import css from '@/scss/study/Core.module.scss'
 import { v4 as uuid } from 'uuid'
 import pinToTop from '@/lib/pinToTop'
+import css from '@/scss/study/Core.module.scss'
 
-export default function Core({ module, stack, setStack, setRightSide }) {
+export default function Core({ module, setRightSide, stack, setStack }) {
   const core = module.script.filter(unit => unit.number)
 
   function toggle(unit) {
@@ -17,11 +17,9 @@ export default function Core({ module, stack, setStack, setRightSide }) {
           <div className={css.number}>{unit.number}</div>
           <div className={css.name}>{unit.name}</div>
           <div className={css.add}>
-            <div>
-              {stack.filter(u => u.index === unit.index).length > 0 &&
-                <i className='bi bi-check2'></i>
-              }
-            </div>
+            {stack.filter(u => u.index === unit.index).length > 0 &&
+              <i className='bi bi-check2'></i>
+            }
           </div>
         </div>
       ))}

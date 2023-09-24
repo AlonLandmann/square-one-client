@@ -1,20 +1,23 @@
-import css from '@/scss/study/Stack.module.scss'
-import { v4 as uuid } from 'uuid'
-import Text from '../units/Text'
-import Notion from '../units/Notion'
-import Definition from '../units/Definition'
-import Axiom from '../units/Axiom'
-import Theorem from '../units/Theorem'
-import Example from '../units/Example'
-import Exercise from '../units/Exercise'
-import Rule from '../units/Rule'
 import { cloneDeep } from 'lodash'
+import { v4 as uuid } from 'uuid'
+import Text from '@/components/units/Text'
+import Notion from '@/components/units/Notion'
+import Definition from '@/components/units/Definition'
+import Axiom from '@/components/units/Axiom'
+import Theorem from '@/components/units/Theorem'
+import Rule from '@/components/units/Rule'
+import Example from '@/components/units/Example'
+import Exercise from '@/components/units/Exercise'
+import css from '@/scss/study/Stack.module.scss'
 
+export default function Stack({ setRightSide, stack, setStack }) {
+  function remove(unitIndex) {
+    setStack(prev => prev.filter(unit => unit.index !== unitIndex))
+  }
 
-export default function Stack({ stack, setStack, setRightSide }) {
-  function expand(index) {
+  function expand(unitIndex) {
     setStack(prev => prev.map(unit => {
-      if (unit.index === index) {
+      if (unit.index === unitIndex) {
         if (typeof unit.selectedSub === 'number') {
           unit.hiddenSubSelection = unit.selectedSub
           delete unit.selectedSub
@@ -27,25 +30,24 @@ export default function Stack({ stack, setStack, setRightSide }) {
       return unit
     }))
   }
-  function removeFromStack(index) {
-    setStack(prev => prev.filter(unit => unit.index !== index))
-  }
-  function moveUp(i) {
+
+  function moveUp(stackIndex) {
     setStack(prev => {
       let newStack = cloneDeep(prev)
 
-      newStack[i - 1] = prev[i]
-      newStack[i] = prev[i - 1]
+      newStack[stackIndex - 1] = prev[stackIndex]
+      newStack[stackIndex] = prev[stackIndex - 1]
 
       return newStack
     })
   }
-  function moveDown(i) {
+
+  function moveDown(stackIndex) {
     setStack(prev => {
       let newStack = cloneDeep(prev)
 
-      newStack[i + 1] = prev[i]
-      newStack[i] = prev[i + 1]
+      newStack[stackIndex + 1] = prev[stackIndex]
+      newStack[stackIndex] = prev[stackIndex + 1]
 
       return newStack
     })
@@ -53,6 +55,13 @@ export default function Stack({ stack, setStack, setRightSide }) {
 
   return (
     <div className={css.container}>
+      {stack.length === 0 &&
+        <div className={css.filler}>
+          <i className='bi bi-layers'></i>
+          <div>Reference stack is empty.</div>
+          <button onClick={() => { setRightSide('core') }}>add</button>
+        </div>
+      }
       {stack.map((unit, i) => (
         <div key={uuid()} className={css.stackItem}>
           <div className={css.unit}>
@@ -66,7 +75,7 @@ export default function Stack({ stack, setStack, setRightSide }) {
             {unit.type === 'exercise' && <Exercise unit={unit} />}
           </div>
           <div className={css.buttons}>
-            <div onClick={() => { removeFromStack(unit.index) }}>
+            <div onClick={() => { remove(unit.index) }}>
               <i className='bi bi-trash3'></i>
             </div>
             {(typeof unit.selectedSub === 'number' || typeof unit.hiddenSubSelection === 'number') &&
@@ -87,13 +96,6 @@ export default function Stack({ stack, setStack, setRightSide }) {
           </div>
         </div>
       ))}
-      {stack.length === 0 &&
-        <div className={css.filler}>
-          <i className='bi bi-layers'></i>
-          <div>Reference stack is empty.</div>
-          <button onClick={() => { setRightSide('core') }}>add</button>
-        </div>
-      }
     </div>
   )
 }

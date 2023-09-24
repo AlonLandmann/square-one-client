@@ -1,20 +1,20 @@
-import css from '@/scss/study/StudyRoot.module.scss'
-import Navbar from './Navbar'
-import Script from './Script'
-import getSectionContent from '@/lib/getSectionContent'
 import { useEffect, useState } from 'react'
-import ModuleProvider from '@/lib/ModuleProvider'
-import StackProvider from '@/lib/StackProvider'
-import Stack from './Stack'
-import Core from './Core'
-import Notes from './Notes'
+import ModuleProvider from '@/components/study/ModuleProvider'
+import StackProvider from '@/components/study/StackProvider'
+import Navbar from '@/components/study/Navbar'
+import Script from '@/components/study/Script'
+import Stack from '@/components/study/Stack'
+import Core from '@/components/study/Core'
+import Notes from '@/components/study/Notes'
+import getLocalContent from '@/lib/getLocalContent'
+import css from '@/scss/study/StudyRoot.module.scss'
 
 export default function StudyRoot({ module, modulesInfo, chapterNr, sectionNr }) {
-  const sectionContent = getSectionContent(module, chapterNr, sectionNr)
-  const [dd, setDd] = useState(null)
-  const [stack, setStack] = useState([])
+  const localContent = getLocalContent(module, chapterNr, sectionNr)
   const [isLoading, setIsLoading] = useState(false)
+  const [dropDown, setDropDown] = useState(null)
   const [rightSide, setRightSide] = useState('stack')
+  const [stack, setStack] = useState([])
   const [notes, setNotes] = useState('Write raw text and formulas [a+b=c] in the bottom. To see how to use the editor to its fullest, check this page.')
 
   useEffect(() => {
@@ -27,14 +27,14 @@ export default function StudyRoot({ module, modulesInfo, chapterNr, sectionNr })
         <Navbar
           module={module}
           modulesInfo={modulesInfo}
-          sectionContent={sectionContent}
-          dd={dd}
-          setDd={setDd}
+          localContent={localContent}
           setIsLoading={setIsLoading}
+          dropDown={dropDown}
+          setDropDown={setDropDown}
           rightSide={rightSide}
           setRightSide={setRightSide}
         />
-        <div className={css.main} onMouseEnter={() => { setDd(null) }}>
+        <div className={css.main} onMouseEnter={() => { setDropDown(null) }}>
           <div>
             {isLoading &&
               <div className={css.loaderContainer}>
@@ -42,17 +42,32 @@ export default function StudyRoot({ module, modulesInfo, chapterNr, sectionNr })
               </div>
             }
             <div style={{ opacity: isLoading ? '0' : '1' }}>
-              <Script sectionContent={sectionContent} setIsLoading={setIsLoading} />
+              <Script
+                localContent={localContent}
+                setIsLoading={setIsLoading}
+              />
             </div>
           </div>
           {rightSide === 'stack' &&
-            <Stack stack={stack} setStack={setStack} setRightSide={setRightSide} />
+            <Stack
+              setRightSide={setRightSide}
+              stack={stack}
+              setStack={setStack}
+            />
           }
           {rightSide === 'core' &&
-            <Core module={module} stack={stack} setStack={setStack} setRightSide={setRightSide} />
+            <Core
+              module={module}
+              setRightSide={setRightSide}
+              stack={stack}
+              setStack={setStack}
+            />
           }
           {rightSide === 'notes' &&
-            <Notes notes={notes} setNotes={setNotes} />
+            <Notes
+              notes={notes}
+              setNotes={setNotes}
+            />
           }
         </div>
       </StackProvider>

@@ -1,8 +1,8 @@
 import { v4 as uuid } from 'uuid'
-import Part from '@/components/parts/Part'
-import TeX from '@/components/parser/TeX'
-import css from '@/scss/units/Axiom.module.scss'
 import { capitalize } from 'lodash'
+import TeX from '@/components/parser/TeX'
+import Part from '@/components/parts/Part'
+import css from '@/scss/units/Axiom.module.scss'
 
 export default function Axiom({ unit }) {
   return (

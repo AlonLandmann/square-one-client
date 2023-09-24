@@ -1,21 +1,23 @@
-import css from '@/scss/study/DropDownNav.module.scss'
 import { useRouter } from 'next/router'
 import { v4 as uuid } from 'uuid'
+import css from '@/scss/study/DropDownNav.module.scss'
 
-export default function DropDownNav({ module, modulesInfo, sectionContent, dd, setDd, ddOffset, setIsLoading }) {
+export default function DropDownNav({ module, modulesInfo, localContent, setIsLoading,
+  dropDown, setDropDown, dropDownOffset }) {
+
   const router = useRouter()
 
   function navTo(chapter, section) {
     setIsLoading(true)
-    setDd(null)
+    setDropDown(null)
     router.push(`/${module.pathName}/${chapter}/${section}`).then(() => { setIsLoading(false) })
   }
 
-  function getStyle(id) {
+  function getStyle(navType) {
     return {
-      opacity: dd === id ? '1' : '0',
-      left: ddOffset,
-      zIndex: dd === id ? '10' : '-10'
+      left: dropDownOffset,
+      zIndex: dropDown === navType ? '10' : '-10',
+      opacity: dropDown === navType ? '1' : '0',
     }
   }
 
@@ -35,8 +37,7 @@ export default function DropDownNav({ module, modulesInfo, sectionContent, dd, s
               <div className={css.number}>M{moduleInfo.id}</div>
               <div>{moduleInfo.displayName}</div>
             </div>
-          ))
-          }
+          ))}
         </div>
       </div>
       <div>
@@ -47,14 +48,13 @@ export default function DropDownNav({ module, modulesInfo, sectionContent, dd, s
           {module.script.filter(unit => unit.type === 'heading').map(unit => (
             <div
               key={uuid()}
-              className={`${css.ddItem} ${unit.chapter === sectionContent.chapter.nr ? css.selected : ''}`}
+              className={`${css.ddItem} ${unit.chapter === localContent.chapter.nr ? css.selected : ''}`}
               onClick={(e) => { e.stopPropagation(); navTo(unit.chapter, 1) }}
             >
               <div className={css.number}>{unit.chapter}</div>
               <div>{unit.content}</div>
             </div>
-          ))
-          }
+          ))}
         </div>
       </div>
       <div>
@@ -63,18 +63,17 @@ export default function DropDownNav({ module, modulesInfo, sectionContent, dd, s
         </div>
         <div className={css.content} style={getStyle('sections')}>
           {module.script.filter(unit => (
-            unit.chapter === sectionContent.chapter.nr && unit.type === 'subheading'
+            unit.chapter === localContent.chapter.nr && unit.type === 'subheading'
           )).map(unit => (
             <div
               key={uuid()}
-              className={`${css.ddItem} ${unit.section === sectionContent.section.nr ? css.selected : ''}`}
+              className={`${css.ddItem} ${unit.section === localContent.section.nr ? css.selected : ''}`}
               onClick={(e) => { e.stopPropagation(); navTo(unit.chapter, unit.section) }}
             >
               <div className={css.number}>{unit.section}</div>
               <div>{unit.content}</div>
             </div>
-          ))
-          }
+          ))}
         </div>
       </div>
     </div>

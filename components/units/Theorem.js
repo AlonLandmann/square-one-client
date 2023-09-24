@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { v4 as uuid } from 'uuid'
-import Subtheorem from '@/components/parts/Subtheorem'
-import Proof from '@/components/parts/Proof'
-import TeX from '@/components/parser/TeX'
-import css from '@/scss/units/Theorem.module.scss'
 import { capitalize } from 'lodash'
+import TeX from '@/components/parser/TeX'
+import Proof from '@/components/parts/Proof'
+import Subtheorem from '@/components/parts/Subtheorem'
+import css from '@/scss/units/Theorem.module.scss'
 
 export default function Theorem({ unit }) {
   const [proofInView, setProofInView] = useState(false)

@@ -1,20 +1,19 @@
 import css from '@/scss/study/Breadcrumbs.module.scss'
 
-export default function Breadcrumbs({ sectionContent, setDd, setDdOffset }) {
-  function handleEnter(event, type) {
+export default function Breadcrumbs({ localContent, setDropDown, setDropDownOffset }) {
+  function handleEnter(event, navType) {
     const { offsetLeft, offsetWidth } = event.target
     const triangleOffset = offsetLeft + 0.5 * offsetWidth - 8
     const contentOffset = Math.max(6, triangleOffset - 192)
 
-    setDd(type)
-    setDdOffset(contentOffset)
+    setDropDown(navType)
+    setDropDownOffset(contentOffset)
   }
 
   return (
     <div className={css.container}>
-      <div
-        className={css.logo}
-        onMouseEnter={() => { setDd(null) }}
+      <div className={css.logo}
+        onMouseEnter={() => { setDropDown(null) }}
         onClick={() => { location.replace('/') }}
       >
         <i className='bi bi-1-square'></i>
@@ -22,15 +21,15 @@ export default function Breadcrumbs({ sectionContent, setDd, setDdOffset }) {
       </div>
       <div><i className='bi bi-slash-lg'></i></div>
       <div className={css.module} onMouseEnter={(e) => { handleEnter(e, 'modules') }}>
-        {sectionContent.module.name}
+        {localContent.module.name}
       </div>
       <div><i className='bi bi-slash-lg'></i></div>
       <div className={css.chapter} onMouseEnter={(e) => { handleEnter(e, 'chapters') }}>
-        {sectionContent.chapter.name}
+        {localContent.chapter.name}
       </div>
       <div><i className='bi bi-slash-lg'></i></div>
       <div className={css.section} onMouseEnter={(e) => { handleEnter(e, 'sections') }}>
-        {sectionContent.section.name}
+        {localContent.section.name}
       </div>
     </div>
   )
