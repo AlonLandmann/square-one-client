@@ -26,7 +26,14 @@
   flex-grow: 1;
 }
 
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
 .removeButton {
+  flex-grow: 1;
   min-width: 40px;
   border-radius: 3px;
   display: flex;
@@ -39,5 +46,22 @@
   
   &:hover {
     background-color: #302828;
+  }
+}
+
+.expandButton {
+  flex-grow: 1;
+  min-width: 40px;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #777788;
+  background-color: #222228;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  
+  &:hover {
+    background-color: #282830;
   }
 }

@@ -11,6 +11,21 @@ import Rule from '../units/Rule'
 
 
 export default function Stack({ stack, setStack }) {
+  function expand(index) {
+    setStack(prev => prev.map(unit => {
+      if (unit.index === index) {
+        if (typeof unit.selectedSub === 'number') {
+          unit.hiddenSubSelection = unit.selectedSub
+          delete unit.selectedSub
+        } else {
+          unit.selectedSub = unit.hiddenSubSelection
+          delete unit.hiddenSubSelection
+        }
+      }
+
+      return unit
+    }))
+  }
   function removeFromStack(index) {
     setStack(prev => prev.filter(unit => unit.index !== index))
   }
@@ -29,8 +44,15 @@ export default function Stack({ stack, setStack }) {
             {unit.type === 'example' && <Example unit={unit} />}
             {unit.type === 'exercise' && <Exercise unit={unit} />}
           </div>
-          <div className={css.removeButton} onClick={() => { removeFromStack(unit.index) }}>
-            <i className='bi bi-trash3'></i>
+          <div className={css.buttons}>
+            {(typeof unit.selectedSub === 'number' || typeof unit.hiddenSubSelection === 'number') &&
+              <div className={css.expandButton} onClick={() => { expand(unit.index) }}>
+                <i className={`bi bi-arrows-${typeof unit.selectedSub === 'number' ? 'expand' : 'collapse'}`}></i>
+              </div>
+            }
+            <div className={css.removeButton} onClick={() => { removeFromStack(unit.index) }}>
+              <i className='bi bi-trash3'></i>
+            </div>
           </div>
         </div>
       ))}
