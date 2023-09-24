@@ -11,8 +11,33 @@
   flex-direction: column;
   gap: 20px;
   background-color: #181818;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
-.container::-webkit-scrollbar {
-  display: none;
+.stackItem {
+  display: flex;
+  gap: 10px;
+}
+
+.unit {
+  flex-grow: 1;
+}
+
+.removeButton {
+  min-width: 40px;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #887777;
+  background-color: #282222;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  
+  &:hover {
+    background-color: #302828;
+  }
 }
