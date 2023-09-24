@@ -1,6 +1,5 @@
 .container {
   font-family: 'Crimson Pro', serif;
-  text-align: justify;
   border-left: 3px solid #ccc;
   color: #bbb;
   background-color: #292929;
@@ -27,6 +26,7 @@
 
 .content {
   padding: 10px 15px;
+  text-align: justify;
 }
 
 .parts {
