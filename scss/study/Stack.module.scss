@@ -1,0 +1,18 @@
+.container {
+  align-self: flex-start;
+  position: sticky;
+  top: 40px;
+  height: calc(100vh - 40px);
+  padding: 40px;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: #181818;
+}
+
+.container::-webkit-scrollbar {
+  display: none;
+}
