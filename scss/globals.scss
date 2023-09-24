@@ -29,12 +29,12 @@ button {
   outline: none;
   font-family: 'Red Hat Display', sans-serif;
   font-size: 15px;
-  color: #ddd;
-  background-color: #282828;
+  color: #999;
+  background-color: #252525;
   cursor: pointer;
   transition: all 0.15s ease;
 
   &:hover {
-    background-color: #333;
+    background-color: #303030;
   }
 }
