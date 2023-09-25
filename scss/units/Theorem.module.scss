@@ -35,8 +35,8 @@
 
 .interactive {
   color: #555;
-  transition: all 0.15s ease-in-out;
   cursor: pointer;
+  transition: all 0.15s ease;
 
   &:hover {
     color: #aaa

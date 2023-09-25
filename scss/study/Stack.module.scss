@@ -50,14 +50,14 @@
   flex-direction: column;
   align-items: center;
 
-  & > i {
+  &>i {
     font-size: 100px;
     color: #555;
   }
 
-  & > div {
+  &>div {
+    margin-bottom: 20px;
     font-size: 18px;
     color: #777;
-    margin-bottom: 20px;
   }
 }

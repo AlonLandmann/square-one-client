@@ -6,10 +6,10 @@
   align-items: center;
   gap: 40px;
 
-  div {
-    cursor: pointer;
-    transition: all 0.15s ease-in-out;
+  &>div {
     color: #777;
+    cursor: pointer;
+    transition: all 0.15s ease;
 
     &:hover {
       color: #bbb;

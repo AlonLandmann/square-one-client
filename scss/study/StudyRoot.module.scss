@@ -14,11 +14,11 @@
 
 .loader {
   position: fixed;
+  width: 90px;
+  height: 90px;
   border: 10px solid #333;
   border-top: 10px solid #666;
   border-radius: 50%;
-  width: 90px;
-  height: 90px;
   animation: spin 1.5s linear infinite;
 }
 

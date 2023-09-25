@@ -5,20 +5,14 @@
   cursor: pointer;
 
   &>div {
+    padding: 0px 6px;
     display: flex;
     align-items: center;
-  }
-}
+    transition: all 0.33s ease-in-out;
 
-.logo,
-.module,
-.chapter,
-.section {
-  padding: 0px 6px;
-  transition: all 0.33s ease-in-out;
-
-  &:hover {
-    color: #eee;
+    &:hover {
+      color: #eee;
+    }
   }
 }
 
