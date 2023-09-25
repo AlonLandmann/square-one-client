@@ -59,7 +59,9 @@ export default function Stack({ setRightSide, stack, setStack }) {
         <div className={css.filler}>
           <i className='bi bi-layers'></i>
           <div>Reference stack is empty.</div>
-          <button onClick={() => { setRightSide('core') }}>add</button>
+          <div className={css.addButton} onClick={() => { setRightSide('core') }}>
+            add
+          </div>
         </div>
       }
       {stack.map((unit, i) => (

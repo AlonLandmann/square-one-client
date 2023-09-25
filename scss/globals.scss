@@ -20,23 +20,6 @@ body {
   background-color: #222;
 }
 
-button {
-  padding: 6px 14px;
-  border: none;
-  border-radius: 3px;
-  outline: none;
-  font-family: 'Red Hat Display', sans-serif;
-  font-size: 15px;
-  color: #999;
-  background-color: #252525;
-  cursor: pointer;
-  transition: all 0.15s ease;
-
-  &:hover {
-    background-color: #303030;
-  }
-}
-
 textarea {
   border: none;
   outline: none;
