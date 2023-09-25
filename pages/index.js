@@ -1,7 +1,11 @@
 import Head from 'next/head'
 import HomeRoot from '@/components/home/HomeRoot'
+import dbConnect from '@/db/dbConnect'
+import Module from '@/db/models/Module'
 
-export default function Home() {
+export default function Home({ modulesInfoJson }) {
+  const modulesInfo = JSON.parse(modulesInfoJson)
+
   return (
     <div>
       <Head>
@@ -12,8 +16,20 @@ export default function Home() {
       </Head>
 
       <main>
-        <HomeRoot />
+        <HomeRoot modulesInfo={modulesInfo} />
       </main>
     </div>
   )
+}
+
+export async function getServerSideProps() {
+  dbConnect()
+
+  const modulesInfo = await Module.find({}, { _id: 0, script: 0 }).sort({ id: 1 })
+
+  return {
+    props: {
+      modulesInfoJson: JSON.stringify(modulesInfo)
+    }
+  }
 }
