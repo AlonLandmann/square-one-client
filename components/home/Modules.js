@@ -7,15 +7,18 @@ export default function Modules({ modulesInfo }) {
 
   return (
     <div className={css.container}>
-      {modulesInfo.map(module => (
-        <div
-          key={uuid()}
-          className={css.banner}
-          onClick={() => { router.push(`/${module.pathName}/1/1`) }}
-        >
-          {module.displayName}
-        </div>
-      ))}
+      <div className={css.headline}>COURSES</div>
+      <div className={css.divider}></div>
+      <div className={css.banners}>
+        {modulesInfo.map(module => (
+          <div
+            key={uuid()}
+            className={css.banner}
+            onClick={() => { router.push(`/${module.pathName}/1/1`) }}
+          >
+            {module.displayName}
+          </div>
+        ))}</div>
     </div>
   )
 }

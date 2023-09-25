@@ -1,5 +1,28 @@
 .container {
   padding: 80px 20px;
+  background-color: #222;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.headline {
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #555;
+  letter-spacing: 2px;
+}
+
+.divider {
+  width: 90%;
+  max-width: 540px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid #555;
+}
+
+.banners {
+  align-self: stretch;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,17 +33,17 @@
   width: 100%;
   max-width: 600px;
   padding: 60px 20px;
-  border-radius: 2px;
+  border-radius: 3px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 18px;
-  color: #ddd;
-  background-color: #303030;
+  font-size: 17px;
+  color: #bbb;
+  background-color: #282828;
   cursor: pointer;
   transition: all 0.15s ease;
 
   &:hover {
-    background-color: #373737;
+    background-color: #2d2d2d;
   }
 }

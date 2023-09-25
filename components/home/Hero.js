@@ -15,7 +15,7 @@ export default function Hero() {
       </div>
       <div className={css.content}>
         <h1>Welcome to Square One</h1>
-        <h3>We study math, science, and technology the right way - from the ground up.</h3>
+        <h3>Study math, science, engineering, and technology from the ground up.</h3>
       </div>
     </div>
   )
