@@ -1,8 +1,8 @@
 import Navbar from '@/components/home/Navbar'
 import Hero from '@/components/home/Hero'
 import Modules from '@/components/home/Modules'
+import Features from '@/components/home/Features'
 import useAuth from '@/hooks/useAuth'
-import css from '@/scss/home/HomeRoot.module.scss'
 
 export default function HomeRoot({ modulesInfo }) {
   const { isLoading, user } = useAuth()
@@ -16,6 +16,7 @@ export default function HomeRoot({ modulesInfo }) {
       <Navbar user={user} />
       <Hero />
       <Modules modulesInfo={modulesInfo} />
+      <Features />
     </div>
   )
 }
