@@ -15,8 +15,8 @@ export default function HomeRoot({ modulesInfo }) {
     <div>
       <Navbar user={user} />
       <Hero />
-      <Modules modulesInfo={modulesInfo} />
       <Features />
+      <Modules modulesInfo={modulesInfo} />
     </div>
   )
 }
