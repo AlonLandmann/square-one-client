@@ -1,19 +1,19 @@
 import Head from 'next/head'
-import HomeRoot from '@/components/home/HomeRoot'
+import SignupRoot from '@/components/auth/SignupRoot'
 
-export default function Home() {
+export default function SignupPage() {
   return (
-    <div>
+    <>
       <Head>
-        <title>Square One</title>
-        <link rel='icon' type='image/x-icon' href='/favicon.svg'></link>
+        <title>Signup</title>
+        <link rel='icon' href='/favicon.svg' />
         <meta name='description' content='learn stem' />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
       </Head>
 
       <main>
-        <HomeRoot />
+        <SignupRoot />
       </main>
-    </div>
+    </>
   )
 }

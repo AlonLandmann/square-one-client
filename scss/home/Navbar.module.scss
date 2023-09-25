@@ -1,0 +1,38 @@
+@use '@/scss/layout';
+
+.container {
+  position: sticky;
+  top: 0px;
+  z-index: 10;
+  background-color: #333;
+}
+
+.content {
+  @include layout.section;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ddd;
+  cursor: pointer;
+}
+
+.login,
+.logout {
+  padding: 5px 20px;
+  display: flex;
+  align-items: center;
+  color: #ddd;
+  background-color: #383838;
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  &:hover {
+    background-color: #444;
+  }
+}

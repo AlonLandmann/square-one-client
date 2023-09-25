@@ -13,7 +13,7 @@ export default function Study({ moduleJson, modulesInfoJson, chapterNr, sectionN
       <Head>
         <title>{module.displayName}</title>
         <link rel='icon' type='image/x-icon' href='/favicon.svg'></link>
-
+        <meta name='description' content='learn stem' />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
       </Head>
 

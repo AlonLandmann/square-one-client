@@ -1,9 +1,17 @@
-import Link from 'next/link'
+import Navbar from '@/components/home/Navbar'
+import useAuth from '@/hooks/useAuth'
+import css from '@/scss/home/HomeRoot.module.scss'
 
 export default function HomeRoot() {
+  const { isLoading, user } = useAuth()
+
+  if (isLoading) {
+    return null
+  }
+
   return (
     <div>
-      <Link href='/logical-foundations/1/1'>Logical Foundations</Link>
+      <Navbar user={user} />
     </div>
   )
 }

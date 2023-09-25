@@ -1,0 +1,107 @@
+.container {
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  width: min(400px, 100%);
+  padding: 50px;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #333;
+
+  label {
+    align-self: flex-start;
+    margin-bottom: 3px;
+    margin-left: 2px;
+    font-size: 15px;
+    color: #ddd;
+  }
+
+  input {
+    align-self: stretch;
+    margin-bottom: 12px;
+  }
+}
+
+.logo {
+  margin-bottom: 20px;
+
+  i {
+    font-size: 60px;
+    color: #999;
+  }
+}
+
+.heading {
+  margin-bottom: 10px;
+  font-size: 24px;
+  font-weight: 500;
+  color: #ddd;
+}
+
+.instructions {
+  margin-bottom: 30px;
+  font-size: 14px;
+  text-align: center;
+  color: #bbb;
+}
+
+.button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border-radius: 3px;
+  font-size: 14px;
+  color: #ddd;
+  background-color: #3b3b3b;
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  &:hover {
+    background-color: #444;
+  }
+}
+
+.redirect {
+  margin-top: 45px;
+  margin-bottom: -10px;
+  font-size: 13px;
+  color: #bbb;
+}
+
+.link {
+  font-size: 13px;
+  color: #7fa0e6;
+  transition: all 0.15s ease-in-out;
+
+  &:hover {
+    color: #afc0e6;
+  }
+}
+
+
+
+@media only screen and (max-width: 440px) {
+  .root {
+    align-items: flex-start;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .form {
+    padding: 30px 40px;
+
+    label {
+      font-size: 14px;
+    }
+
+    .redirect {
+      margin-bottom: -5px;
+    }
+  }
+}
