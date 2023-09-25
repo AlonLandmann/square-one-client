@@ -1,20 +1,15 @@
-@use '@/scss/layout';
-
 .container {
   position: sticky;
   top: 0px;
   z-index: 10;
-  background-color: #333;
-}
-
-.content {
-  @include layout.section;
   height: 50px;
   display: flex;
   justify-content: space-between;
+  background-color: #333;
 }
 
 .logo {
+  padding: 0 25px;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -24,7 +19,7 @@
 
 .login,
 .logout {
-  padding: 5px 20px;
+  padding: 0 25px;
   display: flex;
   align-items: center;
   color: #ddd;

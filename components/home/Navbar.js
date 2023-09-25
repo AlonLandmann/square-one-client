@@ -26,26 +26,24 @@ export default function Navbar({ user }) {
 
   return (
     <div className={css.container}>
-      <div className={css.content}>
-        <div className={css.logo} onClick={() => { router.push('/') }}>
-          <i className='bi bi-1-square'></i>
-          <div>Square One</div>
-        </div>
-        {!user &&
-          <div className={css.login}>
-            <div className={css.buttonLight} onClick={handleLogin}>
-              Log in
-            </div>
-          </div>
-        }
-        {user &&
-          <div className={css.logout}>
-            <div className={css.buttonWhite} onClick={handleLogout}>
-              Logout
-            </div>
-          </div>
-        }
+      <div className={css.logo} onClick={() => { router.push('/') }}>
+        <i className='bi bi-1-square'></i>
+        <div>Square One</div>
       </div>
+      {!user &&
+        <div className={css.login}>
+          <div className={css.buttonLight} onClick={handleLogin}>
+            Log in
+          </div>
+        </div>
+      }
+      {user &&
+        <div className={css.logout}>
+          <div className={css.buttonWhite} onClick={handleLogout}>
+            Logout
+          </div>
+        </div>
+      }
     </div>
   )
 }
