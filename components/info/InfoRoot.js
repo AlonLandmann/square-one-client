@@ -16,7 +16,6 @@ export default function InfoRoot({ module }) {
     <div>
       <Navbar user={user} />
       <Hero module={module} />
-      <Description module={module} />
       <Contents module={module} />
       <Reviews module={module} />
     </div>

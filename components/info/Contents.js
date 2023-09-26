@@ -5,6 +5,8 @@ export default function Contents({ module }) {
   return (
     <div className={css.container}>
       <div className={css.content}>
+        <div className={css.headline}>CONTENTS</div>
+        <div className={css.divider}></div>
         {module.script.map(unit => {
           if (unit.type === 'heading') {
             return (

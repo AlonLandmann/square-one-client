@@ -1,15 +1,29 @@
 .container {
-  background-color: #333;
+  background-color: #282828;
   display: flex;
   justify-content: center;
 }
 
 .content {
-  width: min(100%, 840px);
-  padding: 40px 20px 60px;
+  width: min(100%, 1180px);
+  padding: 80px 50px;
   display: flex;
   flex-direction: column;
   gap: 6px;
+}
+
+.headline {
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #555;
+  letter-spacing: 2px;
+}
+
+.divider {
+  width: 90%;
+  max-width: 540px;
+  border-bottom: 1px solid #555;
 }
 
 .chapter {

@@ -9,10 +9,10 @@ export default function Hero({ module }) {
     <div className={css.container}>
       <div className={css.content}>
         <div className={css.title}>
-          <div className={css.id}>M1</div>
-          <div>Logical Foundations</div>
+          <div className={css.id}>M{module.id}</div>
+          <div>{module.displayName}</div>
         </div>
-        <div className={css.headline}>The basics of mathematical logic and inference. Includes a complete coverage of first order predicate logic.</div>
+        <div className={css.headline}>{module.description}</div>
         <div className={css.stats}>
           <div className={css.reviews}>
             <div className={css.stars}>
@@ -39,7 +39,7 @@ export default function Hero({ module }) {
         </div>
       </div>
       <div className={css.icon}>
-        <TeX tex='[P\implies Q]' />
+        <TeX tex={module.icon} />
       </div>
     </div>
   )
