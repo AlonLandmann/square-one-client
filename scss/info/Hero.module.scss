@@ -1,3 +1,8 @@
+$light: #9a9485;
+$light-hover: #7e7869;
+$normal: #4a4841;
+$dark: #252421;
+
 .container {
   position: relative;
   min-height: 350px;
@@ -20,8 +25,8 @@
   justify-content: center;
   align-items: center;
   font-size: 85px;
-  color: #65a8cf;
-  background-color: #97cff0;
+  color: $normal;
+  background-color: $light;
 }
 
 .content {
@@ -29,7 +34,7 @@
   display: flex;
   flex-direction: column;
   color: #ddd;
-  background-color: #1d1d1d;
+  background-color: #222;
 }
 
 .title {
@@ -42,7 +47,7 @@
 }
 
 .id {
-  border-bottom: 2px solid #97cff0;
+  border-bottom: 2px solid $light;
 }
 
 .headline {
@@ -67,9 +72,8 @@
 .stars {
   display: flex;
   gap: 4px;
-  opacity: 0.8;
   font-size: 14px;
-  color: #97cff0;
+  color: $light;
 }
 
 .reviewers {
@@ -101,11 +105,11 @@
 }
 
 .start {
-  color: #214c64;
-  background-color: #97cff0;
-
+  color: $dark;
+  background-color: $light;
+  
   &:hover {
-    background-color: #65a8cf;
+    background-color: $light-hover;
   }
 }
 

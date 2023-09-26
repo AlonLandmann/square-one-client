@@ -1,0 +1,22 @@
+.container {
+  background-color: #282828;
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  padding: 50px;
+}
+
+.heading {
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #ddd;
+}
+
+.description {
+  max-width: 800px;
+  text-align: justify;
+  color: #bbb;
+}
