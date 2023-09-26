@@ -14,7 +14,7 @@ export default function Modules({ modulesInfo }) {
           <div
             key={uuid()}
             className={css.banner}
-            onClick={() => { router.push(`/${module.pathName}/1/1`) }}
+            onClick={() => { router.push(`/${module.pathName}`) }}
           >
             {module.displayName}
           </div>

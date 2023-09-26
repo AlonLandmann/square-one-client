@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import { toast } from 'react-hot-toast'
-import css from '@/scss/home/Navbar.module.scss'
+import css from '@/scss/common/Navbar.module.scss'
 
 export default function Navbar({ user }) {
   const router = useRouter()
