@@ -1,8 +1,6 @@
 .container {
   position: relative;
   min-height: calc(100vh - 50px);
-  margin: auto;
-  padding: 55px min(55px, max(5%, 20px));
   display: flex;
   justify-content: center;
   align-items: center;

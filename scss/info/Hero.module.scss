@@ -1,0 +1,120 @@
+.container {
+  position: relative;
+  min-height: 350px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+  .icon {
+    grid-row: 1;
+  }
+}
+
+.icon {
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 85px;
+  color: #65a8cf;
+  background-color: #97cff0;
+}
+
+.content {
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  color: #ddd;
+  background-color: #1d1d1d;
+}
+
+.title {
+  margin-bottom: 12px;
+  display: flex;
+  gap: 12px;
+  font-size: 22px;
+  font-weight: 500;
+  color: #eee;
+}
+
+.id {
+  border-bottom: 2px solid #97cff0;
+}
+
+.headline {
+  margin-bottom: 15px;
+  font-size: 15px;
+  color: #bbb;
+}
+
+.stats {
+  margin-bottom: 50px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.reviews {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.stars {
+  display: flex;
+  gap: 4px;
+  opacity: 0.8;
+  font-size: 14px;
+  color: #97cff0;
+}
+
+.reviewers {
+  font-size: 15px;
+}
+
+.circle {
+  font-size: 2px;
+}
+
+.students {
+  font-size: 15px;
+}
+
+.buttons {
+  margin-top: auto;
+  display: flex;
+  gap: 20px;
+
+  &>div {
+    padding: 18px 26px 18px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 17px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+}
+
+.start {
+  color: #214c64;
+  background-color: #97cff0;
+
+  &:hover {
+    background-color: #65a8cf;
+  }
+}
+
+.youtube {
+  color: #bbb;
+  border: 1px solid #bbb;
+
+  &:hover {
+    color: #1d1d1d;
+    background-color: #bbb;
+  }
+}

@@ -7,7 +7,7 @@ export default function Hero() {
       <div className={css.image}>
         <Image
           src='/hero.jpg'
-          alt='styud-image'
+          alt='study-image'
           fill
           objectFit='cover'
           priority

@@ -1,7 +1,11 @@
 import Navbar from '@/components/common/Navbar'
 import useAuth from '@/hooks/useAuth'
+import Hero from './Hero'
+import Description from './Description'
+import Contents from './Contents'
+import Reviews from './Reviews'
 
-export default function HomeRoot({ modulesInfo }) {
+export default function InfoRoot({ module }) {
   const { isLoading, user } = useAuth()
 
   if (isLoading) {
@@ -11,6 +15,10 @@ export default function HomeRoot({ modulesInfo }) {
   return (
     <div>
       <Navbar user={user} />
+      <Hero module={module} />
+      <Description module={module} />
+      <Contents module={module} />
+      <Reviews module={module} />
     </div>
   )
 }
