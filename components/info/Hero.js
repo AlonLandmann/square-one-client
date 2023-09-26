@@ -29,7 +29,7 @@ export default function Hero({ module }) {
         </div>
         <div className={css.buttons}>
           <div className={css.start} onClick={() => { router.push(`${module.pathName}/1/1`) }}>
-            <i className='bi bi-play-fill'></i>
+            <i className='bi bi-book-half'></i>
             <div>Start Course</div>
           </div>
           <div className={css.youtube}>

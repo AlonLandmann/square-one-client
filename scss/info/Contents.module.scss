@@ -1,0 +1,36 @@
+.container {
+  background-color: #333;
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  width: min(100%, 840px);
+  padding: 40px 20px 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.chapter {
+  margin-top: 35px;
+  margin-bottom: 8px;
+  display: flex;
+  gap: 15px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #ddd;
+}
+
+.section {
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: #bbb;
+
+
+  .number {
+    font-family: monospace;
+  }
+}
