@@ -1,0 +1,46 @@
+.container {
+  display: flex;
+  justify-content: center;
+  color: #222;
+  background-color: #aaa;
+}
+
+.content {
+  width: min(100%, 1180px);
+  padding: 80px 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.headline {
+  margin-left: 10px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+.divider {
+  width: 90%;
+  max-width: 540px;
+  margin-bottom: 41px;
+  border-bottom: 1px solid #222;
+}
+
+.objectives {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.objective {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 18px;
+
+  i {
+    font-size: 5px;
+  }
+}
