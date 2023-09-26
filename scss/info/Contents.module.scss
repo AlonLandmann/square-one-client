@@ -1,7 +1,8 @@
 .container {
-  background-color: #282828;
   display: flex;
   justify-content: center;
+  color: #555;
+  background-color: #282828;
 }
 
 .content {
@@ -13,10 +14,10 @@
 }
 
 .headline {
+  margin-left: 10px;
   margin-bottom: 10px;
   font-size: 18px;
   font-weight: 500;
-  color: #555;
   letter-spacing: 2px;
 }
 

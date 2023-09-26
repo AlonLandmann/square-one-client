@@ -1,0 +1,127 @@
+$light: #9a9485;
+$light-hover: #7e7869;
+$mid: #6e6a5e;
+$normal: #4a4841;
+$dark: #252421;
+
+.container {
+  display: flex;
+  justify-content: center;
+  color: $dark;
+  background-color: $light;
+}
+
+.content {
+  width: min(100%, 1180px);
+  padding: 80px 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.headline {
+  margin-left: 10px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  color: $normal;
+}
+
+.divider {
+  width: 90%;
+  max-width: 540px;
+  margin-bottom: 41px;
+  border-bottom: 1px solid $normal;
+}
+
+.reviews {
+  max-width: 80ch;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}
+
+.review {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.topLine {
+  padding: 0 6px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.stars {
+  display: flex;
+  gap: 4px;
+  opacity: 0.8;
+  font-size: 14px;
+  color: $dark;
+}
+
+.title {
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.body {
+  color: $normal;
+  text-align: justify;
+}
+
+.bottomLine {
+  align-self: flex-end;
+  padding: 0 6px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.date {
+  font-size: 14px;
+  color: $mid;
+}
+
+.circle {
+  font-size: 2px;
+  color: $mid;
+}
+
+.user {
+  font-size: 14px;
+  color: $mid;
+}
+
+.prompt {
+  max-width: 80ch;
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.promptContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  color: $light-hover;
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  i {
+    font-size: 60px;
+  }
+
+  div {
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  &:hover {
+    color: $mid;
+  }
+}
