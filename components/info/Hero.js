@@ -1,7 +1,10 @@
+import { useRouter } from 'next/router'
 import TeX from '@/components/parser/TeX'
 import css from '@/scss/info/Hero.module.scss'
 
 export default function Hero({ module }) {
+  const router = useRouter()
+
   return (
     <div className={css.container}>
       <div className={css.content}>
@@ -25,7 +28,7 @@ export default function Hero({ module }) {
           <div className={css.students}>10'145 students</div>
         </div>
         <div className={css.buttons}>
-          <div className={css.start}>
+          <div className={css.start} onClick={() => { router.push(`${module.pathName}/1/1`) }}>
             <i className='bi bi-play-fill'></i>
             <div>Start Course</div>
           </div>
