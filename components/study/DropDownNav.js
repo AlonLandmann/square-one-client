@@ -32,7 +32,7 @@ export default function DropDownNav({ module, modulesInfo, localContent, setIsLo
             <div
               key={uuid()}
               className={`${css.ddItem} ${module.id === moduleInfo.id ? css.selected : ''}`}
-              onClick={(e) => { e.stopPropagation(); location.replace(`/${moduleInfo.pathName}/1/1`) }}
+              onClick={(e) => { e.stopPropagation(); location.replace(`/${moduleInfo.pathName}`) }}
             >
               <div className={css.number}>M{moduleInfo.id}</div>
               <div>{moduleInfo.displayName}</div>
