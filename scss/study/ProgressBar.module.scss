@@ -1,3 +1,5 @@
+@use '@/scss/colors';
+
 .container {
   margin-left: auto;
   min-width: 50px;
@@ -6,5 +8,5 @@
 .progressBar {
   height: 4px;
   border-radius: 2px;
-  background-color: #9a9485;
+  background-color: colors.$light;
 }

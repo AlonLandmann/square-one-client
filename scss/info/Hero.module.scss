@@ -1,7 +1,4 @@
-$light: #9a9485;
-$light-hover: #7e7869;
-$normal: #4a4841;
-$dark: #252421;
+@use '@/scss/colors';
 
 .container {
   position: relative;
@@ -25,8 +22,8 @@ $dark: #252421;
   justify-content: center;
   align-items: center;
   font-size: 85px;
-  color: $normal;
-  background-color: $light;
+  color: colors.$normal;
+  background-color: colors.$light;
 }
 
 .content {
@@ -47,7 +44,7 @@ $dark: #252421;
 }
 
 .id {
-  border-bottom: 2px solid $light;
+  border-bottom: 2px solid colors.$light;
 }
 
 .headline {
@@ -73,7 +70,7 @@ $dark: #252421;
   display: flex;
   gap: 4px;
   font-size: 14px;
-  color: $light;
+  color: colors.$light;
 }
 
 .reviewers {
@@ -105,11 +102,11 @@ $dark: #252421;
 }
 
 .start {
-  color: $dark;
-  background-color: $light;
+  color: colors.$dark;
+  background-color: colors.$light;
   
   &:hover {
-    background-color: $light-hover;
+    background-color: colors.$light-hover;
   }
 }
 

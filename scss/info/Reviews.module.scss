@@ -1,14 +1,10 @@
-$light: #9a9485;
-$light-hover: #7e7869;
-$mid: #6e6a5e;
-$normal: #4a4841;
-$dark: #252421;
+@use '@/scss/colors';
 
 .container {
   display: flex;
   justify-content: center;
-  color: $dark;
-  background-color: $light;
+  color: colors.$dark;
+  background-color: colors.$light;
 }
 
 .content {
@@ -24,14 +20,14 @@ $dark: #252421;
   font-size: 18px;
   font-weight: 500;
   letter-spacing: 2px;
-  color: $normal;
+  color: colors.$normal;
 }
 
 .divider {
   width: 90%;
   max-width: 540px;
   margin-bottom: 41px;
-  border-bottom: 1px solid $normal;
+  border-bottom: 1px solid colors.$normal;
 }
 
 .reviews {
@@ -60,7 +56,7 @@ $dark: #252421;
   gap: 4px;
   opacity: 0.8;
   font-size: 14px;
-  color: $dark;
+  color: colors.$dark;
 }
 
 .title {
@@ -69,7 +65,7 @@ $dark: #252421;
 }
 
 .body {
-  color: $normal;
+  color: colors.$normal;
   text-align: justify;
 }
 
@@ -83,17 +79,17 @@ $dark: #252421;
 
 .date {
   font-size: 14px;
-  color: $mid;
+  color: colors.$mid;
 }
 
 .circle {
   font-size: 2px;
-  color: $mid;
+  color: colors.$mid;
 }
 
 .user {
   font-size: 14px;
-  color: $mid;
+  color: colors.$mid;
 }
 
 .prompt {
@@ -108,7 +104,7 @@ $dark: #252421;
   flex-direction: column;
   align-items: center;
   gap: 12px;
-  color: $light-hover;
+  color: colors.$light-hover;
   cursor: pointer;
   transition: all 0.15s ease;
 
@@ -122,6 +118,6 @@ $dark: #252421;
   }
 
   &:hover {
-    color: $mid;
+    color: colors.$mid;
   }
 }
