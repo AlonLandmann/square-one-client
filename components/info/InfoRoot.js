@@ -8,14 +8,12 @@ import Reviews from '@/components/info/Reviews'
 export default function InfoRoot({ module }) {
   const { isLoading, user } = useAuth()
 
-  if (isLoading) {
-    return null
-  }
+  if (isLoading) return null
 
   return (
     <div>
       <Navbar user={user} />
-      <Hero module={module} />
+      <Hero user={user} module={module} />
       <Objectives module={module} />
       <Contents module={module} />
       <Reviews module={module} />

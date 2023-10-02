@@ -16,15 +16,14 @@ const userSchema = new mongoose.Schema(
       {
         _id: false,
         id: Number,
-        pathName: String,
         sections: [
-          [
-            {
-              _id: false,
-              status: String,
-              notes: String
-            }
-          ]
+          {
+            _id: false,
+            status: String,
+            notes: String,
+            chapterNr: Number,
+            sectionNr: Number
+          }
         ]
       }
     ]
