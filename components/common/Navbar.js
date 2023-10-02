@@ -40,7 +40,7 @@ export default function Navbar({ user }) {
       {user &&
         <div className={css.logout}>
           <div className={css.buttonWhite} onClick={handleLogout}>
-            Logout
+            Log out
           </div>
         </div>
       }
