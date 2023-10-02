@@ -1,11 +1,15 @@
 import { useRouter } from 'next/router'
 import { v4 as uuid } from 'uuid'
+import ProgressBar from '@/components/study/ProgressBar'
+import { getModuleProgress, getChapterProgress, getSectionProgress } from '@/lib/userProgress'
+import useAuth from '@/hooks/useAuth'
 import css from '@/scss/study/DropDownNav.module.scss'
 
 export default function DropDownNav({ module, modulesInfo, localContent, setIsLoading,
   dropDown, setDropDown, dropDownOffset }) {
 
   const router = useRouter()
+  const { user } = useAuth()
 
   function navTo(chapter, section) {
     setIsLoading(true)
@@ -36,6 +40,7 @@ export default function DropDownNav({ module, modulesInfo, localContent, setIsLo
             >
               <div className={css.number}>M{moduleInfo.id}</div>
               <div>{moduleInfo.displayName}</div>
+              {user && <ProgressBar progress={getModuleProgress(user, moduleInfo)} />}
             </div>
           ))}
         </div>
@@ -53,6 +58,7 @@ export default function DropDownNav({ module, modulesInfo, localContent, setIsLo
             >
               <div className={css.number}>{unit.chapter}</div>
               <div>{unit.content}</div>
+              {user && <ProgressBar progress={getChapterProgress(user, module, unit)} />}
             </div>
           ))}
         </div>
@@ -72,6 +78,7 @@ export default function DropDownNav({ module, modulesInfo, localContent, setIsLo
             >
               <div className={css.number}>{unit.section}</div>
               <div>{unit.content}</div>
+              {user && <ProgressBar progress={getSectionProgress(user, module, unit)} />}
             </div>
           ))}
         </div>
