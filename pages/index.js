@@ -3,8 +3,8 @@ import HomeRoot from '@/components/home/HomeRoot'
 import dbConnect from '@/db/dbConnect'
 import Module from '@/db/models/Module'
 
-export default function Home({ modulesInfoJson }) {
-  const modulesInfo = JSON.parse(modulesInfoJson)
+export default function Home({ moduleCatalogueJson }) {
+  const moduleCatalogue = JSON.parse(moduleCatalogueJson)
 
   return (
     <div>
@@ -16,7 +16,7 @@ export default function Home({ modulesInfoJson }) {
       </Head>
 
       <main>
-        <HomeRoot modulesInfo={modulesInfo} />
+        <HomeRoot moduleCatalogue={moduleCatalogue} />
       </main>
     </div>
   )
@@ -25,11 +25,11 @@ export default function Home({ modulesInfoJson }) {
 export async function getServerSideProps() {
   dbConnect()
 
-  const modulesInfo = await Module.find({}, { _id: 0, script: 0 }).sort({ id: 1 })
+  const moduleCatalogue = await Module.find({}, { _id: 0, script: 0 }).sort({ id: 1 })
 
   return {
     props: {
-      modulesInfoJson: JSON.stringify(modulesInfo)
+      moduleCatalogueJson: JSON.stringify(moduleCatalogue)
     }
   }
 }

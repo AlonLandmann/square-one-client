@@ -4,7 +4,7 @@ import Toolbar from '@/components/study/Toolbar'
 import DropDownNav from '@/components/study/DropDownNav'
 import css from '@/scss/study/Navbar.module.scss'
 
-export default function Navbar({ module, modulesInfo, localContent, setIsLoading,
+export default function Navbar({ module, moduleCatalogue, localContent, setIsLoading,
   dropDown, setDropDown, rightSide, setRightSide, user }) {
 
   const [dropDownOffset, setDropDownOffset] = useState(null)
@@ -25,7 +25,7 @@ export default function Navbar({ module, modulesInfo, localContent, setIsLoading
       </div>
       <DropDownNav
         module={module}
-        modulesInfo={modulesInfo}
+        moduleCatalogue={moduleCatalogue}
         localContent={localContent}
         setIsLoading={setIsLoading} 
         dropDown={dropDown}

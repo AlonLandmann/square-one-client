@@ -5,7 +5,7 @@ import ProgressBar from '@/components/study/ProgressBar'
 import { getModuleProgress, getChapterProgress, getSectionProgress } from '@/lib/userProgress'
 import css from '@/scss/study/DropDownNav.module.scss'
 
-export default function DropDownNav({ module, modulesInfo, localContent, setIsLoading,
+export default function DropDownNav({ module, moduleCatalogue, localContent, setIsLoading,
   dropDown, setDropDown, dropDownOffset, user }) {
 
   const router = useRouter()
@@ -31,7 +31,7 @@ export default function DropDownNav({ module, modulesInfo, localContent, setIsLo
           <div className={css.triangle}></div>
         </div>
         <div className={css.content} style={getStyle('modules')}>
-          {modulesInfo.map(moduleInfo => (
+          {moduleCatalogue.map(moduleInfo => (
             <div
               key={uuid()}
               className={`${css.ddItem} ${module.id === moduleInfo.id ? css.selected : ''}`}

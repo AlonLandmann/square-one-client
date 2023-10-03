@@ -4,7 +4,7 @@ import Modules from '@/components/home/Modules'
 import Features from '@/components/home/Features'
 import useAuth from '@/hooks/useAuth'
 
-export default function HomeRoot({ modulesInfo }) {
+export default function HomeRoot({ moduleCatalogue }) {
   const { isLoading, user } = useAuth()
 
   if (isLoading) {
@@ -16,7 +16,7 @@ export default function HomeRoot({ modulesInfo }) {
       <Navbar user={user} />
       <Hero />
       <Features />
-      <Modules modulesInfo={modulesInfo} />
+      <Modules moduleCatalogue={moduleCatalogue} />
     </div>
   )
 }

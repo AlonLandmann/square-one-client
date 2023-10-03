@@ -10,7 +10,7 @@ import getLocalContent from '@/lib/getLocalContent'
 import useAuth from '@/hooks/useAuth'
 import css from '@/scss/study/StudyRoot.module.scss'
 
-export default function StudyRoot({ module, modulesInfo, chapterNr, sectionNr }) {
+export default function StudyRoot({ module, moduleCatalogue, chapterNr, sectionNr }) {
   const localContent = getLocalContent(module, chapterNr, sectionNr)
   const [isLoading, setIsLoading] = useState(false)
   const [dropDown, setDropDown] = useState(null)
@@ -28,7 +28,7 @@ export default function StudyRoot({ module, modulesInfo, chapterNr, sectionNr })
       <StackProvider value={[stack, setStack]}>
         <Navbar
           module={module}
-          modulesInfo={modulesInfo}
+          moduleCatalogue={moduleCatalogue}
           localContent={localContent}
           setIsLoading={setIsLoading}
           dropDown={dropDown}
