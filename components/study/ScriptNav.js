@@ -1,5 +1,4 @@
 import { useRouter } from 'next/router'
-import { useState } from 'react'
 import { cloneDeep, find } from 'lodash'
 import { getUser, putUser } from '@/db/dbFetch'
 import { useModule } from '@/hooks/ModuleProvider'
@@ -8,7 +7,6 @@ import css from '@/scss/study/ScriptNav.module.scss'
 export default function ScriptNav({ user, localContent, setIsRouting }) {
   const router = useRouter()
   const module = useModule()
-  const [checked, setChecked] = useState(false)
 
   function navTo(path) {
     setIsRouting(true)
@@ -46,9 +44,6 @@ export default function ScriptNav({ user, localContent, setIsRouting }) {
         {localContent.previous &&
           <i className='bi bi-chevron-left'></i>
         }
-      </div>
-      <div className={`${css.check} ${checked ? css.checked : ''}`}>
-        <i className='bi bi-check2-all'></i>
       </div>
       <div className={css.chevron} onClick={navToNext}>
         {localContent.next &&
