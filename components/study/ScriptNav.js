@@ -5,7 +5,7 @@ import { getUser, putUser } from '@/db/dbFetch'
 import { useModule } from '@/hooks/ModuleProvider'
 import css from '@/scss/study/ScriptNav.module.scss'
 
-export default function ScriptNav({ localContent, setIsRouting, user, fetchUser }) {
+export default function ScriptNav({ user, fetchUser, localContent, setIsRouting }) {
   const router = useRouter()
   const module = useModule()
   const [checked, setChecked] = useState(false)

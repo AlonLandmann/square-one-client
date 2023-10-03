@@ -25,6 +25,7 @@ export default function StudyRoot({ module, moduleCatalogue, localContent }) {
     <ModuleProvider value={module}>
       <StackProvider value={[stack, setStack]}>
         <Navbar
+          user={user}
           module={module}
           moduleCatalogue={moduleCatalogue}
           localContent={localContent}
@@ -33,7 +34,6 @@ export default function StudyRoot({ module, moduleCatalogue, localContent }) {
           setDropDown={setDropDown}
           rightSide={rightSide}
           setRightSide={setRightSide}
-          user={user}
         />
         <div className={css.main} onMouseEnter={() => { setDropDown(null) }}>
           <div>
@@ -44,10 +44,10 @@ export default function StudyRoot({ module, moduleCatalogue, localContent }) {
             }
             <div style={{ opacity: isRouting ? '0' : '1' }}>
               <Script
-                localContent={localContent}
-                setIsRouting={setIsRouting}
                 user={user}
                 fetchUser={fetchUser}
+                localContent={localContent}
+                setIsRouting={setIsRouting}
               />
             </div>
           </div>

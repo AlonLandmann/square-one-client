@@ -4,8 +4,8 @@ import Toolbar from '@/components/study/Toolbar'
 import DropDownNav from '@/components/study/DropDownNav'
 import css from '@/scss/study/Navbar.module.scss'
 
-export default function Navbar({ module, moduleCatalogue, localContent, setIsRouting,
-  dropDown, setDropDown, rightSide, setRightSide, user }) {
+export default function Navbar({ user, module, moduleCatalogue, localContent, setIsRouting,
+  dropDown, setDropDown, rightSide, setRightSide }) {
 
   const [dropDownOffset, setDropDownOffset] = useState(null)
 

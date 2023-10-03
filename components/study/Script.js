@@ -12,7 +12,7 @@ import Example from '@/components/units/Example'
 import Exercise from '@/components/units/Exercise'
 import css from '@/scss/study/Script.module.scss'
 
-export default function Script({ localContent, setIsRouting, user, fetchUser }) {
+export default function Script({ user, fetchUser, localContent, setIsRouting }) {
   return (
     <div className={css.container}>
       {localContent.section.nr === 1 &&
@@ -32,10 +32,10 @@ export default function Script({ localContent, setIsRouting, user, fetchUser }) 
         </div>
       ))}
       <ScriptNav
-        localContent={localContent}
-        setIsRouting={setIsRouting}
         user={user}
         fetchUser={fetchUser}
+        localContent={localContent}
+        setIsRouting={setIsRouting}
       />
     </div>
   )
