@@ -7,21 +7,17 @@ import Notes from '@/components/study/Notes'
 import StackProvider from '@/hooks/StackProvider'
 import ModuleProvider from '@/hooks/ModuleProvider'
 import useAuth from '@/hooks/useAuth'
-import getLocalContent from '@/lib/getLocalContent'
 import css from '@/scss/study/StudyRoot.module.scss'
 
-export default function StudyRoot({ module, moduleCatalogue, chapterNr, sectionNr }) {
+export default function StudyRoot({ module, moduleCatalogue, localContent }) {
   const { isLoading, user, fetchUser } = useAuth()
-  const localContent = getLocalContent(module, chapterNr, sectionNr)
   const [isRouting, setIsRouting] = useState(false)
   const [dropDown, setDropDown] = useState(null)
   const [rightSide, setRightSide] = useState('stack')
   const [stack, setStack] = useState([])
   const [notes, setNotes] = useState('Notes')
   
-  useEffect(() => {
-    setRightSide('stack')
-  }, [stack])
+  useEffect(() => { setRightSide('stack') }, [stack])
 
   if (isLoading) return null
 
