@@ -4,9 +4,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 40px;
+  gap: 20px;
 
   &>div {
+    min-width: 30px;
+    display: flex;
+    justify-content: center;
     color: #777;
     cursor: pointer;
     transition: all 0.15s ease;
