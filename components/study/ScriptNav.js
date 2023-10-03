@@ -3,13 +3,11 @@ import { useState } from 'react'
 import { cloneDeep, find } from 'lodash'
 import { useModule } from '@/components/study/ModuleProvider'
 import { getUser, putUser } from '@/db/dbFetch'
-import useAuth from '@/hooks/useAuth'
 import css from '@/scss/study/ScriptNav.module.scss'
 
-export default function ScriptNav({ localContent, setIsLoading }) {
+export default function ScriptNav({ localContent, setIsLoading, user, fetchUser }) {
   const router = useRouter()
   const module = useModule()
-  const { user } = useAuth()
   const [checked, setChecked] = useState(false)
 
   function navTo(path) {
@@ -35,7 +33,7 @@ export default function ScriptNav({ localContent, setIsLoading }) {
 
         section.status = 'complete'
 
-        await putUser(user.email, newUser, () => { navTo(localContent.next) })
+        await putUser(user.email, newUser, () => { fetchUser(); navTo(localContent.next) })
       } else {
         navTo(localContent.next)
       }

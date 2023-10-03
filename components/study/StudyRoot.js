@@ -7,6 +7,7 @@ import Stack from '@/components/study/Stack'
 import Core from '@/components/study/Core'
 import Notes from '@/components/study/Notes'
 import getLocalContent from '@/lib/getLocalContent'
+import useAuth from '@/hooks/useAuth'
 import css from '@/scss/study/StudyRoot.module.scss'
 
 export default function StudyRoot({ module, modulesInfo, chapterNr, sectionNr }) {
@@ -16,7 +17,8 @@ export default function StudyRoot({ module, modulesInfo, chapterNr, sectionNr })
   const [rightSide, setRightSide] = useState('stack')
   const [stack, setStack] = useState([])
   const [notes, setNotes] = useState('Write raw text and formulas [a+b=c] in the bottom. To see how to use the editor to its fullest, check this page.')
-
+  const { user, fetchUser } = useAuth()
+  
   useEffect(() => {
     setRightSide('stack')
   }, [stack])
@@ -33,6 +35,7 @@ export default function StudyRoot({ module, modulesInfo, chapterNr, sectionNr })
           setDropDown={setDropDown}
           rightSide={rightSide}
           setRightSide={setRightSide}
+          user={user}
         />
         <div className={css.main} onMouseEnter={() => { setDropDown(null) }}>
           <div>
@@ -45,6 +48,8 @@ export default function StudyRoot({ module, modulesInfo, chapterNr, sectionNr })
               <Script
                 localContent={localContent}
                 setIsLoading={setIsLoading}
+                user={user}
+                fetchUser={fetchUser}
               />
             </div>
           </div>
