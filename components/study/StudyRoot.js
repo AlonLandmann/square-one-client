@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react'
-import ModuleProvider from '@/components/study/ModuleProvider'
-import StackProvider from '@/components/study/StackProvider'
 import Navbar from '@/components/study/Navbar'
 import Script from '@/components/study/Script'
 import Stack from '@/components/study/Stack'
 import Core from '@/components/study/Core'
 import Notes from '@/components/study/Notes'
-import getLocalContent from '@/lib/getLocalContent'
+import StackProvider from '@/components/study/StackProvider'
+import ModuleProvider from '@/hooks/ModuleProvider'
 import useAuth from '@/hooks/useAuth'
+import getLocalContent from '@/lib/getLocalContent'
 import css from '@/scss/study/StudyRoot.module.scss'
 
 export default function StudyRoot({ module, moduleCatalogue, chapterNr, sectionNr }) {
@@ -16,7 +16,7 @@ export default function StudyRoot({ module, moduleCatalogue, chapterNr, sectionN
   const [dropDown, setDropDown] = useState(null)
   const [rightSide, setRightSide] = useState('stack')
   const [stack, setStack] = useState([])
-  const [notes, setNotes] = useState('Write raw text and formulas [a+b=c] in the bottom. To see how to use the editor to its fullest, check this page.')
+  const [notes, setNotes] = useState('Notes')
   const { user, fetchUser } = useAuth()
   
   useEffect(() => {

@@ -1,8 +1,8 @@
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { cloneDeep, find } from 'lodash'
-import { useModule } from '@/components/study/ModuleProvider'
 import { getUser, putUser } from '@/db/dbFetch'
+import { useModule } from '@/hooks/ModuleProvider'
 import css from '@/scss/study/ScriptNav.module.scss'
 
 export default function ScriptNav({ localContent, setIsLoading, user, fetchUser }) {
