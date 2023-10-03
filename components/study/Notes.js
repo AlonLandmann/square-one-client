@@ -19,7 +19,7 @@ export default function Notes({ user, module, localContent, notes, setNotes }) {
 
     section.notes = notes
 
-    await putUser(user.email, newUser, () => { toast('notes saved') })
+    await putUser(user.email, newUser, () => { toast.success('notes saved') })
   }
 
   return (
