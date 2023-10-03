@@ -34,31 +34,3 @@
     transition: all 0.33s ease-in-out;
   }
 }
-
-.ddItem {
-  padding: 10px 14px 10px 4px;
-  border-radius: 3px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: all 0.15s ease;
-
-  &:hover {
-    background-color: #333333;
-  }
-
-  &.selected {
-    background-color: #3b3b3b;
-
-    &:hover {
-      background-color: #282828;
-    }
-  }
-}
-
-.number {
-  min-width: 24px;
-  text-align: center;
-}
