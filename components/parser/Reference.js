@@ -1,6 +1,6 @@
 import Tooltip from '@mui/material/Tooltip'
 import { cloneDeep } from 'lodash'
-import { useStack } from '@/components/study/StackProvider'
+import { useStack } from '@/hooks/StackProvider'
 import { useModule } from '@/hooks/ModuleProvider'
 import pinToTop from '@/lib/pinToTop'
 import css from '@/scss/parser/Reference.module.scss'
