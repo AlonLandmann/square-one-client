@@ -1,15 +1,16 @@
-import { useRouter } from 'next/router'
 import { toast } from 'react-hot-toast'
 import css from '@/scss/common/Navbar.module.scss'
 
 export default function Navbar({ user }) {
-  const router = useRouter()
-
-  function handleLogin() {
-    router.push('/login')
+  const handleNavHome = () => {
+    location.replace('/')
   }
 
-  async function handleLogout() {
+  const handleLogin = () => {
+    location.replace('/login')
+  }
+
+  const handleLogout = async () => {
     const logoutRes = await fetch('/api/auth/logout', {
       method: 'POST',
       headers: { 'Accept': 'application/json' }
@@ -26,7 +27,7 @@ export default function Navbar({ user }) {
 
   return (
     <div className={css.container}>
-      <div className={css.logo} onClick={() => { router.push('/') }}>
+      <div className={css.logo} onClick={handleNavHome}>
         <i className='bi bi-1-square'></i>
         <div>Square One</div>
       </div>

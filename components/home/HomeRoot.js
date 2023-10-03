@@ -7,9 +7,7 @@ import useAuth from '@/hooks/useAuth'
 export default function HomeRoot({ moduleCatalogue }) {
   const { isLoading, user } = useAuth()
 
-  if (isLoading) {
-    return null
-  }
+  if (isLoading) return null
 
   return (
     <div>

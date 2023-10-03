@@ -4,7 +4,7 @@ import dbConnect from '@/db/dbConnect'
 import Module from '@/db/models/Module'
 import hydrate from '@/lib/hydrate'
 
-export default function Study({ moduleJson }) {
+export default function Info({ moduleJson }) {
   const module = JSON.parse(moduleJson)
 
   return (

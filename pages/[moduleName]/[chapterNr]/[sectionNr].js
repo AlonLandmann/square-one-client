@@ -32,9 +32,9 @@ export default function Study({ moduleJson, moduleCatalogueJson, chapterNr, sect
 export async function getServerSideProps({ query: { moduleName, chapterNr, sectionNr } }) {
   dbConnect()
 
+  const moduleCatalogue = await Module.find({}, { _id: 0, script: 0 }).sort({ id: 1 })
   const raw = await Module.findOne({ pathName: moduleName }, { _id: 0 })
   const module = hydrate(raw)
-  const moduleCatalogue = await Module.find({}, { _id: 0, script: 0 }).sort({ id: 1 })
 
   return {
     props: {

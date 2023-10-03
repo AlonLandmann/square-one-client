@@ -1,10 +1,7 @@
 import { v4 as uuid } from 'uuid'
-import { useRouter } from 'next/router'
 import css from '@/scss/home/Modules.module.scss'
 
 export default function Modules({ moduleCatalogue }) {
-  const router = useRouter()
-
   return (
     <div className={css.container}>
       <div className={css.headline}>COURSES</div>
@@ -14,11 +11,12 @@ export default function Modules({ moduleCatalogue }) {
           <div
             key={uuid()}
             className={css.banner}
-            onClick={() => { router.push(`/${module.pathName}`) }}
+            onClick={() => { location.replace(`/${module.pathName}`) }}
           >
             {module.displayName}
           </div>
-        ))}</div>
+        ))}
+      </div>
     </div>
   )
 }
