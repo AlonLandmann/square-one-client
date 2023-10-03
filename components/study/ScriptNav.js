@@ -5,14 +5,14 @@ import { getUser, putUser } from '@/db/dbFetch'
 import { useModule } from '@/hooks/ModuleProvider'
 import css from '@/scss/study/ScriptNav.module.scss'
 
-export default function ScriptNav({ localContent, setIsLoading, user, fetchUser }) {
+export default function ScriptNav({ localContent, setIsRouting, user, fetchUser }) {
   const router = useRouter()
   const module = useModule()
   const [checked, setChecked] = useState(false)
 
   function navTo(path) {
-    setIsLoading(true)
-    router.push(path).then(() => { setIsLoading(false) })
+    setIsRouting(true)
+    router.push(path).then(() => { setIsRouting(false) })
   }
 
   function navToPrevious() {

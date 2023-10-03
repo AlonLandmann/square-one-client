@@ -11,17 +11,19 @@ import getLocalContent from '@/lib/getLocalContent'
 import css from '@/scss/study/StudyRoot.module.scss'
 
 export default function StudyRoot({ module, moduleCatalogue, chapterNr, sectionNr }) {
+  const { isLoading, user, fetchUser } = useAuth()
   const localContent = getLocalContent(module, chapterNr, sectionNr)
-  const [isLoading, setIsLoading] = useState(false)
+  const [isRouting, setIsRouting] = useState(false)
   const [dropDown, setDropDown] = useState(null)
   const [rightSide, setRightSide] = useState('stack')
   const [stack, setStack] = useState([])
   const [notes, setNotes] = useState('Notes')
-  const { user, fetchUser } = useAuth()
   
   useEffect(() => {
     setRightSide('stack')
   }, [stack])
+
+  if (isLoading) return null
 
   return (
     <ModuleProvider value={module}>
@@ -30,7 +32,7 @@ export default function StudyRoot({ module, moduleCatalogue, chapterNr, sectionN
           module={module}
           moduleCatalogue={moduleCatalogue}
           localContent={localContent}
-          setIsLoading={setIsLoading}
+          setIsRouting={setIsRouting}
           dropDown={dropDown}
           setDropDown={setDropDown}
           rightSide={rightSide}
@@ -39,15 +41,15 @@ export default function StudyRoot({ module, moduleCatalogue, chapterNr, sectionN
         />
         <div className={css.main} onMouseEnter={() => { setDropDown(null) }}>
           <div>
-            {isLoading &&
+            {isRouting &&
               <div className={css.loaderContainer}>
                 <div className={css.loader}></div>
               </div>
             }
-            <div style={{ opacity: isLoading ? '0' : '1' }}>
+            <div style={{ opacity: isRouting ? '0' : '1' }}>
               <Script
                 localContent={localContent}
-                setIsLoading={setIsLoading}
+                setIsRouting={setIsRouting}
                 user={user}
                 fetchUser={fetchUser}
               />

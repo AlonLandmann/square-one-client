@@ -5,15 +5,15 @@ import ProgressBar from '@/components/study/ProgressBar'
 import { getModuleProgress, getChapterProgress, getSectionProgress } from '@/lib/userProgress'
 import css from '@/scss/study/DropDownNav.module.scss'
 
-export default function DropDownNav({ module, moduleCatalogue, localContent, setIsLoading,
+export default function DropDownNav({ module, moduleCatalogue, localContent, setIsRouting,
   dropDown, setDropDown, dropDownOffset, user }) {
 
   const router = useRouter()
 
   function navTo(chapter, section) {
-    setIsLoading(true)
+    setIsRouting(true)
     setDropDown(null)
-    router.push(`/${module.pathName}/${chapter}/${section}`).then(() => { setIsLoading(false) })
+    router.push(`/${module.pathName}/${chapter}/${section}`).then(() => { setIsRouting(false) })
   }
 
   function getStyle(navType) {
