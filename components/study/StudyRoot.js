@@ -7,6 +7,7 @@ import Notes from '@/components/study/Notes'
 import StackProvider from '@/hooks/StackProvider'
 import ModuleProvider from '@/hooks/ModuleProvider'
 import useAuth from '@/hooks/useAuth'
+import { getSectionNotes } from '@/lib/userProgress'
 import css from '@/scss/study/StudyRoot.module.scss'
 
 export default function StudyRoot({ module, moduleCatalogue, localContent }) {
@@ -16,7 +17,9 @@ export default function StudyRoot({ module, moduleCatalogue, localContent }) {
   const [rightSide, setRightSide] = useState('stack')
   const [stack, setStack] = useState([])
   const [notes, setNotes] = useState('Notes')
-  
+
+  useEffect(() => { fetchUser() }, [localContent])
+  useEffect(() => { setNotes(user ? getSectionNotes(user, module, localContent) : '') }, [user])
   useEffect(() => { setRightSide('stack') }, [stack])
 
   if (isLoading) return null
@@ -45,7 +48,6 @@ export default function StudyRoot({ module, moduleCatalogue, localContent }) {
             <div style={{ opacity: isRouting ? '0' : '1' }}>
               <Script
                 user={user}
-                fetchUser={fetchUser}
                 localContent={localContent}
                 setIsRouting={setIsRouting}
               />
@@ -68,6 +70,9 @@ export default function StudyRoot({ module, moduleCatalogue, localContent }) {
           }
           {rightSide === 'notes' &&
             <Notes
+              user={user}
+              module={module}
+              localContent={localContent}
               notes={notes}
               setNotes={setNotes}
             />

@@ -5,7 +5,7 @@ import { getUser, putUser } from '@/db/dbFetch'
 import { useModule } from '@/hooks/ModuleProvider'
 import css from '@/scss/study/ScriptNav.module.scss'
 
-export default function ScriptNav({ user, fetchUser, localContent, setIsRouting }) {
+export default function ScriptNav({ user, localContent, setIsRouting }) {
   const router = useRouter()
   const module = useModule()
   const [checked, setChecked] = useState(false)
@@ -33,7 +33,7 @@ export default function ScriptNav({ user, fetchUser, localContent, setIsRouting 
 
         section.status = 'complete'
 
-        await putUser(user.email, newUser, () => { fetchUser(); navTo(localContent.next) })
+        await putUser(user.email, newUser, () => { navTo(localContent.next) })
       } else {
         navTo(localContent.next)
       }
