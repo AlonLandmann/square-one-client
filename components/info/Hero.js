@@ -1,29 +1,28 @@
-import { useRouter } from 'next/router'
 import TeX from '@/components/parser/TeX'
 import { putUser } from '@/db/dbFetch'
 import { addModule, getSections } from '@/lib/userProgress'
 import css from '@/scss/info/Hero.module.scss'
 
 export default function Hero({ user, module }) {
-  const router = useRouter()
-
-  async function handleStart() {
+  const handleStart = async () => {
     if (!user) {
-      router.push(`${module.pathName}/1/1`)
+      location.replace(`${module.pathName}/1/1`)
     } else if (user.modules.filter(m => m.id === module.id).length === 0) {
-      await putUser(user.email, addModule(user, module),() => { router.push(`${module.pathName}/1/1`)})
+      await putUser(user.email, addModule(user, module), () => {
+        location.replace(`${module.pathName}/1/1`)
+      })
     } else {
       const sections = getSections(user, module)
 
       for (let i = 0; i < sections.length; i++) {
         if (sections[i].status === 'unread') {
-          router.push(`${module.pathName}/${sections[i].chapterNr}/${sections[i].sectionNr}`)
+          location.replace(`${module.pathName}/${sections[i].chapterNr}/${sections[i].sectionNr}`)
 
           return
         }
       }
 
-      router.push(`${module.pathName}/1/1`)
+      location.replace(`${module.pathName}/1/1`)
     }
   }
 

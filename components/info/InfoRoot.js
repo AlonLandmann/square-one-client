@@ -1,9 +1,9 @@
 import Navbar from '@/components/common/Navbar'
-import useAuth from '@/hooks/useAuth'
 import Hero from '@/components/info/Hero'
 import Objectives from '@/components/info/Objectives'
 import Contents from '@/components/info/Contents'
 import Reviews from '@/components/info/Reviews'
+import useAuth from '@/hooks/useAuth'
 
 export default function InfoRoot({ module }) {
   const { isLoading, user } = useAuth()
