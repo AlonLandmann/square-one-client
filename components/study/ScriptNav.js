@@ -2,11 +2,13 @@ import { useRouter } from 'next/router'
 import { cloneDeep, find } from 'lodash'
 import { getUser, putUser } from '@/db/dbFetch'
 import { useModule } from '@/hooks/ModuleProvider'
+import { isComplete } from '@/lib/userProgress'
 import css from '@/scss/study/ScriptNav.module.scss'
 
 export default function ScriptNav({ user, localContent, setIsRouting }) {
   const router = useRouter()
   const module = useModule()
+  const complete = isComplete(user, module, localContent)
 
   function navTo(path) {
     setIsRouting(true)
@@ -40,15 +42,22 @@ export default function ScriptNav({ user, localContent, setIsRouting }) {
 
   return (
     <div className={css.container}>
-      <div className={css.chevron} onClick={navToPrevious}>
-        {localContent.previous &&
-          <i className='bi bi-chevron-left'></i>
-        }
-      </div>
-      <div className={css.chevron} onClick={navToNext}>
-        {localContent.next &&
-          <i className='bi bi-chevron-right'></i>
-        }
+      <div className={css.divider}></div>
+      <div className={css.content}>
+
+        <div className={css.previous} onClick={navToPrevious}>
+          {localContent.previous &&
+            <i className='bi bi-arrow-left'></i>
+          }
+        </div>
+        <div>
+          {localContent.next &&
+            <div className={`${css.next} ${!complete ? css.incomplete : ''}`} onClick={navToNext}>
+              <i className='bi bi-arrow-right'></i>
+              <div>Next</div>
+            </div>
+          }
+        </div>
       </div>
     </div>
   )
