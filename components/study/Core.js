@@ -3,7 +3,7 @@ import pinToTop from '@/lib/pinToTop'
 import css from '@/scss/study/Core.module.scss'
 
 export default function Core({ module, setRightSide, stack, setStack }) {
-  const core = module.script.filter(unit => unit.number)
+  const core = module.script.filter(unit => unit.number || unit.type === 'heading')
 
   function toggle(unit) {
     setStack(prev => pinToTop(unit, prev))
@@ -13,15 +13,25 @@ export default function Core({ module, setRightSide, stack, setStack }) {
   return (
     <div className={css.container}>
       {core.map(unit => (
-        <div key={uuid()} className={css.item} onClick={() => { toggle(unit) }}>
-          <div className={css.number}>{unit.number}</div>
-          <div className={css.name}>{unit.name}</div>
-          <div className={css.add}>
-            {stack.filter(u => u.index === unit.index).length > 0 &&
-              <i className='bi bi-check2'></i>
-            }
-          </div>
-        </div>
+        <>
+          {unit.type === 'heading' &&
+            <div key={uuid()} className={css.chapter}>
+              {unit.content}
+            </div>
+          }
+          {unit.type !== 'heading' &&
+            <div key={uuid()} className={css.item} onClick={() => { toggle(unit) }}>
+              <div className={css.number}>{unit.number}</div>
+              <div className={css.name}>{unit.name}</div>
+              <div className={css.add}>
+                {stack.filter(u => u.index === unit.index).length > 0 &&
+                  <i className='bi bi-check2'></i>
+                }
+              </div>
+            </div>
+          }
+        </>
+
       ))}
     </div>
   )

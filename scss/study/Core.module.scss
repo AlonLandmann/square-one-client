@@ -17,9 +17,21 @@
   }
 }
 
+.chapter {
+  padding: 18px 4px 10px;
+  display: flex;
+  align-items: center;
+  color: #666;
+
+  &:first-of-type {
+    padding-top: 0px;
+  }
+}
+
 .item {
   display: flex;
-  padding: 6px 10px;
+  align-items: center;
+  padding: 6px 10px 6px 2px;
   border-radius: 3px;
   cursor: pointer;
   transition: all 0.15s ease;
