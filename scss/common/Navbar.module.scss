@@ -4,8 +4,21 @@
   z-index: 10;
   height: 50px;
   display: flex;
-  justify-content: space-between;
   background-color: #333;
+}
+
+.nav {
+  padding: 0 35px;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  color: #bbb;
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  &:hover {
+    color: #ddd;
+  }
 }
 
 .logo {

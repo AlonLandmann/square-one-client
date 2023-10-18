@@ -6,6 +6,10 @@ export default function Navbar({ user }) {
     location.replace('/')
   }
 
+  const handleNavToCourses = () => {
+    location.replace('/#courses')
+  }
+
   const handleLogin = () => {
     location.replace('/login')
   }
@@ -30,6 +34,9 @@ export default function Navbar({ user }) {
       <div className={css.logo} onClick={handleNavHome}>
         <i className='bi bi-1-square'></i>
         <div>Square One</div>
+      </div>
+      <div className={css.nav} onClick={handleNavToCourses}>
+        Courses
       </div>
       {!user &&
         <div className={css.login}>

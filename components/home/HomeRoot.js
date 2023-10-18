@@ -1,3 +1,5 @@
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 import Navbar from '@/components/common/Navbar'
 import Hero from '@/components/home/Hero'
 import Modules from '@/components/home/Modules'
@@ -6,6 +8,17 @@ import useAuth from '@/hooks/useAuth'
 
 export default function HomeRoot({ moduleCatalogue }) {
   const { isLoading, user } = useAuth()
+  const router = useRouter()
+
+  useEffect(() => {
+    if (router.asPath.includes('#courses')) {
+      const coursesElement = document.getElementById('courses')
+
+      if (coursesElement) {
+        coursesElement.scrollIntoView();
+      }
+    }
+  }, [isLoading])
 
   if (isLoading) return null
 
@@ -14,7 +27,7 @@ export default function HomeRoot({ moduleCatalogue }) {
       <Navbar user={user} />
       <Hero />
       <Features />
-      <Modules moduleCatalogue={moduleCatalogue} />
+      <div id='courses'><Modules moduleCatalogue={moduleCatalogue} /></div>
     </div>
   )
 }
