@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import css from '@/scss/home/Features.module.scss'
 
 export default function Features() {
@@ -18,8 +19,11 @@ export default function Features() {
         </div>
         <div className={css.feature}>
           <div className={css.icon}><i className='bi bi-journal-bookmark'></i></div>
-          <div className={css.heading}>LaTeX Note-Taking</div>
-          <div className={css.description}>Conveniently take notes using the universally accepted LaTeX standard.</div>
+          <div className={css.heading}>TeX Note-Taking</div>
+          <div className={css.description}>
+            Take notes using the universally accepted{' '}
+            <Link href='https://en.wikipedia.org/wiki/TeX' target='_blank'>TeX standard</Link>{' '}
+            for mathematical notation.</div>
         </div>
       </div>
     </div>

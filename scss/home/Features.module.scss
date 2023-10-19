@@ -59,4 +59,14 @@
 .description {
   max-width: 30ch;
   color: colors.$normal;
+  
+  a {
+    color: colors.$mid;
+    transition: all 0.15s ease;
+    text-decoration: none;
+
+    &:hover {
+      color: colors.$normal;
+    }
+  }
 }
