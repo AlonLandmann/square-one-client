@@ -71,7 +71,7 @@ export default function Reviews({ module }) {
         <div className={css.prompt}>
           <div className={css.promptContent}>
             <i className='bi bi-feather'></i>
-            <div>Write a review</div>
+            <div>Leave a review</div>
           </div>
         </div>
       </div>
