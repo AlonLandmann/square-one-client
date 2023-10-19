@@ -1,9 +1,17 @@
 import { v4 as uuid } from 'uuid'
+import { putUser } from '@/db/dbFetch'
+import { addModule } from '@/lib/userProgress'
 import css from '@/scss/info/Contents.module.scss'
 
 export default function Contents({ user, module }) {
-  function handleSectionNav(unit) {
-    location.replace(`/${module.pathName}/${unit.chapter}/${unit.section}`)
+  async function handleSectionNav(unit) {
+    if (!user || user.modules.filter(m => m.id === module.id).length !== 0) {
+      location.replace(`/${module.pathName}/${unit.chapter}/${unit.section}`)
+    } else  {
+      await putUser(user.email, addModule(user, module), () => {
+        location.replace(`/${module.pathName}/${unit.chapter}/${unit.section}`)
+      })
+    }
   }
 
   return (

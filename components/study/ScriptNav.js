@@ -8,7 +8,7 @@ import css from '@/scss/study/ScriptNav.module.scss'
 export default function ScriptNav({ user, localContent, setIsRouting }) {
   const router = useRouter()
   const module = useModule()
-  const complete = isComplete(user, module, localContent)
+  const complete = !user || isComplete(user, module, localContent)
 
   function navTo(path) {
     setIsRouting(true)
