@@ -9,14 +9,14 @@ export default function Core({ module, localContent, setRightSide, stack, setSta
   for (let i = 0; i < module.script.length; i++) {
     const unit = module.script[i]
 
-    if (unit.number || unit.type === 'heading') {
-      core.push(unit)
-    }
-
     if (unit.chapter === localContent.chapter.nr && unit.section === localContent.section.nr) {
       stopNext = true
     } else if (stopNext) {
       break;
+    }
+    
+    if (unit.number || unit.type === 'heading') {
+      core.push(unit)
     }
   }
 
