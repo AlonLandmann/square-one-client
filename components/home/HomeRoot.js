@@ -15,7 +15,7 @@ export default function HomeRoot({ moduleCatalogue }) {
       const coursesElement = document.getElementById('courses')
 
       if (coursesElement) {
-        coursesElement.scrollIntoView();
+        coursesElement.scrollIntoView({ behavior: 'smooth' });
       }
     }
   }, [isLoading])

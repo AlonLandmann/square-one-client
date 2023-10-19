@@ -1,19 +1,28 @@
+import { useRouter } from 'next/router'
 import { toast } from 'react-hot-toast'
 import css from '@/scss/common/Navbar.module.scss'
 
 export default function Navbar({ user }) {
+  const router = useRouter()
+
   const handleNavHome = () => {
     location.replace('/')
   }
-
   const handleNavToCourses = () => {
-    location.replace('/#courses')
-  }
+    console.log(router)
+    if (router.asPath === '/' || router.asPath === '/#courses') {
+      const coursesElement = document.getElementById('courses')
 
+      if (coursesElement) {
+        coursesElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      location.replace('/#courses')
+    }
+  }
   const handleLogin = () => {
     location.replace('/login')
   }
-
   const handleLogout = async () => {
     const logoutRes = await fetch('/api/auth/logout', {
       method: 'POST',
