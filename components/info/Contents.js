@@ -1,7 +1,11 @@
 import { v4 as uuid } from 'uuid'
 import css from '@/scss/info/Contents.module.scss'
 
-export default function Contents({ module }) {
+export default function Contents({ user, module }) {
+  function handleSectionNav(unit) {
+    location.replace(`/${module.pathName}/${unit.chapter}/${unit.section}`)
+  }
+
   return (
     <div className={css.container}>
       <div className={css.content}>
@@ -18,7 +22,7 @@ export default function Contents({ module }) {
           }
           if (unit.type === 'subheading') {
             return (
-              <div key={uuid()} className={css.section}>
+              <div key={uuid()} className={css.section} onClick={() => { handleSectionNav(unit) }}>
                 <div className={css.number}>{unit.chapter}.{unit.section}</div>
                 <div className={css.name}>{unit.content}</div>
               </div>

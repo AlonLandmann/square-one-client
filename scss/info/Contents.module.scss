@@ -10,7 +10,7 @@
   padding: 80px 50px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 2px;
 }
 
 .headline {
@@ -38,14 +38,21 @@
 }
 
 .section {
-  margin-left: 10px;
+  max-width: 540px;
+  padding: 5px 15px;
+  border-radius: 3px;
   display: flex;
   align-items: center;
   gap: 15px;
   color: #bbb;
-
+  cursor: pointer;
+  transition: all 0.15s ease;
 
   .number {
     font-family: monospace;
+  }
+
+  &:hover {
+    background-color: #333;
   }
 }
