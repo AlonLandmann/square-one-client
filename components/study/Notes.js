@@ -30,6 +30,7 @@ export default function Notes({ user, module, localContent, notes, setNotes }) {
       <textarea
         className={css.raw}
         spellCheck={false}
+        autoFocus
         value={notes}
         onChange={handleChange}
       >
