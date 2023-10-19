@@ -63,6 +63,7 @@ export default function StudyRoot({ module, moduleCatalogue, localContent }) {
           {rightSide === 'core' &&
             <Core
               module={module}
+              localContent={localContent}
               setRightSide={setRightSide}
               stack={stack}
               setStack={setStack}
