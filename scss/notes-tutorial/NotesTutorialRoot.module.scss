@@ -1,0 +1,19 @@
+.main {
+  display: grid;
+  min-height: calc(100vh - 50px);
+  grid-template-columns: 50% 50%;
+}
+
+.raw {
+  width: 100%;
+  padding: 40px;
+  resize: none;
+  background-color: #1c1c1c;
+}
+
+.tex {
+  padding: 40px;
+  overflow-y: auto;
+  font-family: 'Crimson Pro', serif;
+  background-color: #181818;
+}
