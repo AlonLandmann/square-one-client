@@ -45,7 +45,7 @@ export default function Navbar({ user }) {
         <div>Square One</div>
       </div>
       <div className={css.nav} onClick={handleNavToCourses}>
-        Courses
+        courses
       </div>
       {!user &&
         <div className={css.login}>

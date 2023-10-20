@@ -1,10 +1,12 @@
 import { v4 as uuid } from 'uuid'
 import { putUser } from '@/db/dbFetch'
 import { addModule } from '@/lib/userProgress'
+import ProgressBar from '@/components/common/ProgressBar'
+import { getSectionProgress } from '@/lib/userProgress'
 import css from '@/scss/info/Contents.module.scss'
 
 export default function Contents({ user, module }) {
-  async function handleSectionNav(unit) {
+  const handleSectionNav = async (unit) => {
     if (!user || user.modules.filter(m => m.id === module.id).length !== 0) {
       location.replace(`/${module.pathName}/${unit.chapter}/${unit.section}`)
     } else  {
@@ -33,6 +35,9 @@ export default function Contents({ user, module }) {
               <div key={uuid()} className={css.section} onClick={() => { handleSectionNav(unit) }}>
                 <div className={css.number}>{unit.chapter}.{unit.section}</div>
                 <div className={css.name}>{unit.content}</div>
+                {user &&
+                  <ProgressBar progress={getSectionProgress(user, module, unit)} />
+                }
               </div>
             )
           }
