@@ -9,7 +9,7 @@ export default function Contents({ user, module }) {
   const handleSectionNav = async (unit) => {
     if (!user || user.modules.filter(m => m.id === module.id).length !== 0) {
       location.replace(`/${module.pathName}/${unit.chapter}/${unit.section}`)
-    } else  {
+    } else {
       await putUser(user.email, addModule(user, module), () => {
         location.replace(`/${module.pathName}/${unit.chapter}/${unit.section}`)
       })
@@ -35,7 +35,7 @@ export default function Contents({ user, module }) {
               <div key={uuid()} className={css.section} onClick={() => { handleSectionNav(unit) }}>
                 <div className={css.number}>{unit.chapter}.{unit.section}</div>
                 <div className={css.name}>{unit.content}</div>
-                {user &&
+                {user && user.modules.filter(m => m.id === module.id).length > 0 &&
                   <ProgressBar progress={getSectionProgress(user, module, unit)} />
                 }
               </div>
