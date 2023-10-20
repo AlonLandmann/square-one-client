@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { cloneDeep, find } from 'lodash'
 import toast from 'react-hot-toast'
 import TeX from '@/components/parser/TeX'
@@ -36,12 +37,18 @@ export default function Notes({ user, module, localContent, notes, setNotes }) {
       >
 
       </textarea>
-      {user &&
-        <div className={css.saveButton} onClick={handleSave}>
-          <i className='bi bi-floppy'></i>
-          <div>save</div>
-        </div>
-      }
+      <div className={css.uiButtons}>
+        <Link className={css.infoButton} href='/notes-tutorial'>
+          <i className='bi bi-info-circle'></i>
+          <div>tutorial</div>
+        </Link>
+        {user &&
+          <div className={css.saveButton} onClick={handleSave}>
+            <i className='bi bi-floppy'></i>
+            <div>save</div>
+          </div>
+        }
+      </div>
     </div>
   )
 }
