@@ -40,6 +40,23 @@ export default function ScriptNav({ user, localContent, setIsRouting }) {
     }
   }
 
+  async function navToCoursePage() {
+    if (user) {
+      let currentUser = await getUser(user.email)
+      let newUser = cloneDeep(currentUser)
+      let sections = newUser.modules.filter(m => m.id === module.id)[0].sections
+      let section = find(sections, (s => {
+        return s.chapterNr === localContent.chapter.nr && s.sectionNr === localContent.section.nr
+      }))
+
+      section.status = 'complete'
+
+      await putUser(user.email, newUser, () => { location.replace(`/${module.pathName}`) })
+    } else {
+      location.replace(`/${module.pathName}`)
+    }
+  }
+
   return (
     <div className={css.container}>
       <div className={css.divider}></div>
@@ -53,6 +70,12 @@ export default function ScriptNav({ user, localContent, setIsRouting }) {
         <div>
           {localContent.next &&
             <div className={`${css.next} ${!complete ? css.incomplete : ''}`} onClick={navToNext}>
+              <i className='bi bi-arrow-right'></i>
+              <div>Next</div>
+            </div>
+          }
+          {!localContent.next &&
+            <div className={`${css.next} ${!complete ? css.incomplete : ''}`} onClick={navToCoursePage}>
               <i className='bi bi-arrow-right'></i>
               <div>Next</div>
             </div>

@@ -52,10 +52,15 @@ export default function Hero({ user, module }) {
           <div className={css.start} onClick={handleStart}>
             <i className='bi bi-book-half'></i>
             {user && user.modules.filter(m => m.id === module.id).length > 0
-              ? <div>
-                  Continue Studying{' '}
-                  · {Math.floor(getModuleProgress(user, module) * 100)}%
-                </div>
+              ? getModuleProgress(user, module) === 1
+                ? <div>
+                    Look Back{' '}
+                    · {Math.floor(getModuleProgress(user, module) * 100)}%
+                  </div>
+                : <div>
+                    Continue Studying{' '}
+                    · {Math.floor(getModuleProgress(user, module) * 100)}%
+                  </div>
               : <div>Start Course</div>
             }
           </div>
