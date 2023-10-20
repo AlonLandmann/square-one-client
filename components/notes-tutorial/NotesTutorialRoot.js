@@ -1,6 +1,6 @@
 import Navbar from '@/components/common/Navbar'
 import useAuth from '@/hooks/useAuth'
-import TeX from '@/components/parser/TeX'
+import TeXForUser from '@/components/parser/TeXForUser'
 import css from '@/scss/notes-tutorial/NotesTutorialRoot.module.scss'
 import { useState } from 'react'
 
@@ -28,7 +28,7 @@ export default function NotesTutorialRoot() {
 
         </textarea>
         <div className={css.tex}>
-          <TeX tex={notes} />
+          <TeXForUser tex={notes} />
         </div>
       </div>
     </div>
