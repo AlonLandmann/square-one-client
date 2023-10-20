@@ -27,7 +27,12 @@ export default function HomeRoot({ moduleCatalogue }) {
       <Navbar user={user} />
       <Hero />
       <Features />
-      <div id='courses'><Modules moduleCatalogue={moduleCatalogue} /></div>
+      <div id='courses'>
+        <Modules
+          user={user}
+          moduleCatalogue={moduleCatalogue}
+        />
+      </div>
     </div>
   )
 }

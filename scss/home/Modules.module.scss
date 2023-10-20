@@ -1,3 +1,5 @@
+@use '@/scss/colors';
+
 .container {
   padding: 80px 20px;
   background-color: #222;
@@ -30,6 +32,7 @@
 }
 
 .banner {
+  position: relative;
   width: 100%;
   max-width: 600px;
   padding: 60px 20px;
@@ -38,11 +41,22 @@
   align-items: center;
   font-size: 17px;
   color: #bbb;
-  background-color: #282828;
+  background-color: #2a2a2a;
+  opacity: 0.9;
   cursor: pointer;
   transition: all 0.15s ease;
 
   &:hover {
     background-color: #2d2d2d;
   }
+}
+
+.progressOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -10;
+  height: 100%;
+  background-color: colors.$light;
+  opacity: 0.1;
 }
