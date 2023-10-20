@@ -9,7 +9,6 @@ export default function Navbar({ user }) {
     location.replace('/')
   }
   const handleNavToCourses = () => {
-    console.log(router)
     if (router.asPath === '/' || router.asPath === '/#courses') {
       const coursesElement = document.getElementById('courses')
 

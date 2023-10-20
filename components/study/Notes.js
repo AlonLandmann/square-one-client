@@ -38,16 +38,16 @@ export default function Notes({ user, module, localContent, notes, setNotes }) {
 
       </textarea>
       <div className={css.uiButtons}>
-        <Link className={css.infoButton} href='/notes-tutorial'>
-          <i className='bi bi-info-circle'></i>
-          <div>tutorial</div>
-        </Link>
         {user &&
           <div className={css.saveButton} onClick={handleSave}>
             <i className='bi bi-floppy'></i>
             <div>save</div>
           </div>
         }
+        <Link className={css.infoButton} href='/notes-tutorial'>
+          <i className='bi bi-info-circle'></i>
+          <div>tutorial</div>
+        </Link>
       </div>
     </div>
   )
