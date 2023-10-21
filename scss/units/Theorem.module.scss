@@ -1,14 +1,15 @@
 .container {
   font-family: 'Crimson Pro', serif;
-  border-left: 3px solid #ccc;
-  color: #bbb;
-  background-color: #292929;
+  border-left: 3px solid #85929a;
+  color: #a6adb2;
+  background-color: #272a2b;
 }
 
 .headline {
   padding: 10px 15px;
   display: flex;
-  background-color: #303030;
+  color: #a6adb2;
+  background-color: #303435;
 }
 
 .type {
@@ -25,7 +26,7 @@
 }
 
 .content {
-  padding: 10px 15px;
+  padding: 15px;
   text-align: justify;
 }
 
