@@ -21,9 +21,6 @@ export default function Toolbar({ setDropDown, rightSide, setRightSide }) {
       >
         <i className='bi bi-layers'></i>
       </div>
-      <div>
-        <i className='bi bi-gear-fill'></i>
-      </div>
     </div>
   )
 }

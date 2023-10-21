@@ -60,7 +60,7 @@ export default function Stack({ setRightSide, stack, setStack }) {
           <i className='bi bi-layers'></i>
           <div>Reference stack is empty.</div>
           <div className={css.addButton} onClick={() => { setRightSide('core') }}>
-            add
+            add references
           </div>
         </div>
       }
