@@ -1,6 +1,9 @@
 .container {
+  font-size: 18px;
+  line-height: 1.25;
   min-height: calc(100vh - 40px);
   padding: 40px;
+  padding-right: 60px;
   display: flex;
   flex-direction: column;
   gap: 25px;
