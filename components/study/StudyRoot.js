@@ -14,13 +14,14 @@ export default function StudyRoot({ module, moduleCatalogue, localContent }) {
   const { isLoading, user, fetchUser } = useAuth()
   const [isRouting, setIsRouting] = useState(false)
   const [dropDown, setDropDown] = useState(null)
-  const [rightSide, setRightSide] = useState('stack')
+  const [rightSide, setRightSide] = useState('notes')
   const [stack, setStack] = useState([])
   const [notes, setNotes] = useState('Notes')
 
   useEffect(() => { fetchUser() }, [localContent])
   useEffect(() => { setNotes(user ? getSectionNotes(user, module, localContent) : '') }, [user])
   useEffect(() => { setRightSide('stack') }, [stack])
+  useEffect(() => { setRightSide('notes') }, [])
 
   if (isLoading) return null
 
