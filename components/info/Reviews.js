@@ -16,7 +16,7 @@ export default function Reviews({ module }) {
                 <div><i className='bi bi-star-fill'></i></div>
                 <div><i className='bi bi-star-half'></i></div>
               </div>
-              <div className={css.title}>Fantastic</div>
+              <div className={css.title}>Review 1</div>
             </div>
             <div className={css.body}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -36,7 +36,7 @@ export default function Reviews({ module }) {
                 <div><i className='bi bi-star-half'></i></div>
                 <div><i className='bi bi-star'></i></div>
               </div>
-              <div className={css.title}>Good</div>
+              <div className={css.title}>Review 2</div>
             </div>
             <div className={css.body}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -56,7 +56,7 @@ export default function Reviews({ module }) {
                 <div><i className='bi bi-star-fill'></i></div>
                 <div><i className='bi bi-star-fill'></i></div>
               </div>
-              <div className={css.title}>Genius</div>
+              <div className={css.title}>Review 3</div>
             </div>
             <div className={css.body}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.

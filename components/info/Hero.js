@@ -43,10 +43,10 @@ export default function Hero({ user, module }) {
               <div><i className='bi bi-star-fill'></i></div>
               <div><i className='bi bi-star-half'></i></div>
             </div>
-            <div className={css.reviewers}>2078 reviews</div>
+            <div className={css.reviewers}>3 reviews</div>
           </div>
           <div className={css.circle}><i className='bi bi-circle-fill'></i></div>
-          <div className={css.students}>10'145 students</div>
+          <div className={css.students}>12 students</div>
         </div>
         <div className={css.buttons}>
           <div className={css.start} onClick={handleStart}>
