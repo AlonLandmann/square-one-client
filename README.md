@@ -15,11 +15,11 @@ The reader is also able to take notes in LaTeX format - the modern standard for 
 ## Demo
 ![Demo Screen Recording](./public/readme/demo.gif)
 
-## Contents for the course in First Order Logic
+## First Order Logic Contents
 ![Contents Screenshot](./public/readme/contents.png)
 
-## Note-taking panel active
+## Note-taking Panel
 ![Notes Screenshot](./public/readme/notes.png)
 
-## Reference stack active
+## Reference Stack
 ![Stack Screenshot](./public/readme/stack.png)
